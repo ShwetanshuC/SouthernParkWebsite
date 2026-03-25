@@ -436,24 +436,32 @@ header { position: relative; display: block; line-height: 0; font-size: 0; }
 /* ===== Navbar shadow on scroll ===== */
 nav.scrolled { box-shadow: 0 4px 16px rgba(0,0,0,0.25); }
 
-/* ===== Nav link hover underline ===== */
+/* ===== Nav link active dot ===== */
 .nav-link-ul {
   position: relative;
-  overflow: hidden;
 }
-.nav-link-ul::after {
+.nav-link-ul.active-link::after {
   content: '';
   position: absolute;
-  bottom: 4px;
+  bottom: 5px;
   left: 50%;
-  right: 50%;
-  height: 2px;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
   background: #f97316;
-  transition: left 0.2s ease, right 0.2s ease;
-  border-radius: 1px;
 }
-.nav-link-ul:hover::after,
-.nav-link-ul.active-link::after { left: 12px; right: 12px; }
+
+/* ===== Trial lesson button — optical centering fix ===== */
+.btn-trial {
+  padding: 10px 20px 8px !important;
+  line-height: 1 !important;
+}
+
+/* ===== Hero parallax ===== */
+#heroCarousel .carousel-item {
+  will-change: transform;
+}
 
 /* ===== Hero label (editorial) ===== */
 .hero-label {
