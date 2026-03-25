@@ -6,14 +6,15 @@
 /*  Design Tokens        */
 /* ===================== */
 :root {
-  --espresso:   #2C1A10;
+  --espresso:   #3A2415;
   --brown:      #6B4226;
-  --gold:       #C8860A;
-  --gold-light: #E9A825;
-  --cream:      #FAF6EF;
-  --offwhite:   #EDE8E0;
-  --text:       #1A1008;
+  --gold:       #A0673A;
+  --gold-light: #C07840;
+  --cream:      #FAF8F4;
+  --offwhite:   #EDE8DF;
+  --text:       #2A1A0E;
   --muted:      #7A6355;
+  --nav-text:   #F0E4D0;
   --radius:     0.75rem;
   --radius-sm:  0.4rem;
   --shadow:     0 4px 20px rgba(44,26,16,0.10);
@@ -224,12 +225,12 @@ h2.section-title::after {
   font-family: 'Playfair Display', Georgia, serif;
   font-weight: 700;
   font-size: 1.2rem;
-  color: #fff;
+  color: var(--nav-text);
   text-decoration: none;
   line-height: 1.2;
   transition: color 0.2s;
 }
-.navbar-brand:hover { color: var(--gold-light); }
+.navbar-brand:hover { color: #fff; }
 
 .brand-logo {
   height: 38px;
@@ -265,7 +266,7 @@ h2.section-title::after {
 .navbar-nav .nav-item { display: flex; align-items: center; }
 
 .navbar-nav .nav-link {
-  color: rgba(255,255,255,0.85);
+  color: var(--nav-text);
   text-decoration: none;
   font-weight: 500;
   font-size: 0.88rem;
@@ -274,27 +275,34 @@ h2.section-title::after {
   transition: color 0.2s, background 0.2s;
   display: flex;
   align-items: center;
+  opacity: 0.88;
 }
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
-  color: var(--gold-light);
+  color: #fff;
+  opacity: 1;
 }
 
 /* CTA pill inside nav */
 .nav-cta {
   background: var(--gold);
-  color: var(--espresso) !important;
-  font-weight: 700;
+  color: #fff !important;
+  font-weight: 600;
   font-size: 0.85rem;
-  padding: 0.45rem 1.1rem;
+  padding: 0.45rem 1.2rem;
   border-radius: 999px;
+  border: none;
   text-decoration: none;
   transition: background 0.2s, transform 0.15s;
   white-space: nowrap;
-  margin-left: 0.5rem;
+  margin-left: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1.4;
 }
 .nav-cta:hover {
   background: var(--gold-light);
+  color: #fff !important;
   transform: translateY(-1px);
 }
 
@@ -391,13 +399,14 @@ h2.section-title::after {
 /*  Weather Banner       */
 /* ===================== */
 .weather-banner {
-  background: var(--gold);
-  color: var(--espresso);
+  background: #5A3A22;
+  color: rgba(240,228,210,0.92);
   font-size: 0.82rem;
   font-weight: 500;
   padding: 0.5rem 1rem;
   text-align: center;
   letter-spacing: 0.01em;
+  border-top: 1px solid rgba(160,103,58,0.3);
 }
 
 /* ===================== */
@@ -567,6 +576,25 @@ main { /* no top margin needed — navbar is sticky */ }
   object-fit: cover;
 }
 
+/* Fix: force 4-col grid for feature cards regardless of row/col math */
+.why-us-section .row.g-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin: 0;
+}
+.why-us-section .row.g-4 > [class*="col-"] {
+  padding: 0;
+  flex: none;
+  width: auto;
+}
+@media (max-width: 991px) {
+  .why-us-section .row.g-4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 576px) {
+  .why-us-section .row.g-4 { grid-template-columns: 1fr; }
+}
+
 /* Why Us feature cards */
 .feature-card {
   background: #fff;
@@ -588,11 +616,7 @@ main { /* no top margin needed — navbar is sticky */ }
 .feature-card-body {
   padding: 1.4rem 1.5rem 1.6rem;
 }
-.feature-icon {
-  font-size: 1.8rem;
-  margin-bottom: 0.65rem;
-  display: block;
-}
+.feature-icon { display: none; }
 .feature-card-body h5 {
   font-family: 'Playfair Display', Georgia, serif;
   font-size: 1.05rem;
@@ -849,15 +873,17 @@ footer {
 /*  Policies Page        */
 /* ===================== */
 .policy-wrap {
-  max-width: 860px;
-  margin: 3rem auto 4rem;
-  padding: 0 1rem;
+  margin: 2.5rem auto 3rem;
+  padding: 0;
 }
 .policy-card {
   background: #fff;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  padding: 2.5rem 2rem;
+  padding: 2.5rem 3rem;
+}
+@media (max-width: 576px) {
+  .policy-card { padding: 1.5rem 1.25rem; }
 }
 .policy-card h3 {
   font-family: 'Playfair Display', Georgia, serif;
