@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Southern Park Music School</title>
+  <link rel="icon" type="image/gif" href="images/SPMS_542_icon.gif" />
+  <!-- Bootstrap CSS -->
+  <!-- Local Bootstrap CSS placeholder -->
+  <link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container d-flex align-items-center justify-content-between">
+      <div class="brand-wrap">
+        <div class="brand-line">
+          <a class="navbar-brand" href="index.html">Southern Park Music School</a>
+          <img src="images/SPMS_542_icon.gif" alt="Southern Park Music School logo" class="brand-logo" />
+        </div>
+        <div class="brand-contact">
+          <a href="tel:+17045550123">(704) 676-1002</a>
+          <span class="sep">•</span>
+          <a href="mailto:info@southernparkmusicschool.com">info@southernparkmusicschool.com</a>
+        </div>
+      </div>
+
+      <!-- Custom hamburger; JS will toggle #mainNav and aria-expanded -->
+      <button class="navbar-toggler" type="button"
+              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="hamburger" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 flex-lg-row flex-column gap-1">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="faculty.html">Faculty</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="calendar.html">Calendar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="policies.html">Policies</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="gallery.html">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-primary nav-cta" href="mailto:info@southernparkmusicschool.com?subject=Book%20a%20Trial%20Lesson">Book a Trial Lesson</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Weather banner -->
+  <div class="weather-banner w-100 text-center text-white py-2" role="status" aria-live="polite" style="background-color: #dc3545; color: #ffffff;">
+    In the event of adverse weather, please contact your teacher individually to arrange a virtual lesson.
+  </div>
+
+  <!-- Hero section with custom slideshow -->
+  <header>
+    <div id="heroCarousel">
+      <div class="carousel-item active" style="background-image: url('images/carnegie.jpeg')"></div>
+      <div class="carousel-item" style="background-image: url('images/gallery1.jpg')"></div>
+      <div class="carousel-item" style="background-image: url('images/gallery2.jpg')"></div>
+      <div class="hero-overlay">
+        <h1>
+          We are Southern Park Music School<br>
+          <span class="hero-subtitle">Where the good become great.</span>
+        </h1>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- About Section -->
+    <section class="about-section" id="about">
+      <div class="container">
+        <h2 class="section-title">About Us</h2>
+        <div class="row align-items-center">
+          <div class="col-md-6 mb-4 mb-md-0">
+            <p>
+              Welcome to Southern Park Music School, where creativity and
+              excellence meet. Our mission is to inspire students of all ages
+              and abilities through personalised lessons, dynamic ensemble
+              experiences and immersive performance opportunities. Whether
+              you're discovering music for the first time or preparing for a
+              professional career, our dedicated faculty are here to guide you
+              every step of the way.
+            </p>
+            <p>
+              We offer instruction across a wide range of instruments and
+              musical styles. Students benefit from small class sizes, a
+              supportive community and access to state-of-the-art facilities.
+              Join us and let music become a lifelong companion.
+            </p>
+          </div>
+          <div class="col-md-6">
+            <div class="card card-custom">
+              <img
+                src="images/school-new.jpg"
+                class="img-fluid"
+                alt="Piano illustration"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section class="why-us-section" id="why-us">
+      <div class="container">
+        <h2 class="section-title">Why Choose Southern Park?</h2>
+        <p class="text-center mb-4" style="max-width: 800px; margin: 0 auto; color: #475569;">
+          Since 1964, we’ve helped Charlotte families discover the joy of music with inspiring teachers, a welcoming community, and spaces built for sound.
+        </p>
+        <div class="row g-4 mt-1">
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100 card-custom">
+              <div class="card-body">
+                <h5 class="card-title">Recitals that Inspire</h5>
+                <p class="card-text">Perform in our beautiful recital hall. We host programs about once a month during the school year—and recitals are free for performers and guests.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100 card-custom">
+              <div class="card-body">
+                <h5 class="card-title">Studios Built for Sound</h5>
+                <p class="card-text">Eight private lesson studios, each with an acoustic piano; every piano lesson is taught on a <strong>grand piano</strong> for the best feel and tone.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100 card-custom">
+              <div class="card-body">
+                <h5 class="card-title">Exceptional Faculty</h5>
+                <p class="card-text">Experienced performers and educators with extensive training—many hold advanced music degrees—and a passion for teaching.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100 card-custom">
+              <div class="card-body">
+                <h5 class="card-title">Student Success</h5>
+                <p class="card-text">Our students thrive—participating in festivals and competitions, earning awards, and growing a lifelong love of music.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-4">
+          <a class="btn btn-primary" href="mailto:info@southernparkmusicschool.com?subject=Enroll%20Today">Enroll today</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our History Section -->
+    <section class="history-section" id="history">
+      <div class="container">
+        <h2 class="section-title">Our History</h2>
+        <div class="row align-items-center">
+          <div class="col-md-6 mb-4 mb-md-0">
+            <p><strong>Founded in 1964</strong> by John Whitaker and Harold Nave, Southern Park Music School began with six students at a small facility near Park Road Shopping Center.</p>
+            <p>In 1968, the school moved to <strong>2838 Selwyn Avenue</strong>. By 1971, John Whitaker had become the sole owner.</p>
+            <p>Dr. Michael Lehtinen joined the faculty as a piano instructor in <strong>1995</strong>, and became the director in <strong>2006</strong> upon Mr. Whitaker’s retirement.</p>
+            <p>Also in 2006, the Selwyn Avenue location was sold as part of a neighborhood redevelopment project. Southern Park returned to Park Road later that year to a newly constructed home at <strong>Seneca Commons</strong>. Because it was new construction, Dr. Lehtinen was able to <em>custom design</em> the space for a music school.</p>
+            <p>Today our facility includes eight teaching studios and a beautiful recital hall—each planned with aural and visual needs in mind—plus a welcoming lobby and office that houses an extensive music library. Architects, acousticians, engineers, and developers all contributed to create an ideal space for learning and performance.</p>
+            <p>Southern Park celebrated its <strong>50th anniversary in 2014</strong>. We look back with pride, having provided music education to thousands of students—some prizewinners at the local, state, and national levels, and some who have gone on to professional careers in music.</p>
+            <p>From our first six students to today’s thriving community, our mission has remained constant. Since 1964 we have welcomed <strong>all</strong> students, offering lessons regardless of race or background. We continue to open our doors to every learner and to share the language of music with the next generation.</p>
+          </div>
+          <div class="col-md-6">
+            <div class="card card-custom">
+              <img src="images/school-old.jpg" class="img-fluid" alt="School history collage" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container text-center">
+      <p class="mb-2">&copy; 2025 Southern Park Music School. All rights reserved.</p>
+      <p>
+        Follow us on
+        <a href="#" class="me-2">Facebook</a>
+        <a href="#" class="me-2">Instagram</a>
+        <a href="#">Twitter</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Trial Lesson Modal -->
+  <div class="modal fade" id="trialModal" tabindex="-1" aria-labelledby="trialModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content rounded">
+        <div class="modal-header">
+          <h5 class="modal-title" id="trialModalLabel">Book a Trial Lesson</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="trialForm">
+            <div class="mb-3">
+              <label for="instrumentSelect" class="form-label">Choose an instrument</label>
+              <select class="form-select" id="instrumentSelect">
+                <option value="">Select an instrument...</option>
+              </select>
+            </div>
+            <div class="mb-3" id="teacherGroup" style="display: none;">
+              <label for="teacherSelect" class="form-label">Do you want a specific teacher?</label>
+              <select class="form-select" id="teacherSelect">
+                <option value="none">No, I have no teacher preference</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary" id="submitBtn" style="display: none;">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="scripts.js"></script>
+  <script>
+    const instrumentData = {
+      "Piano": ["Alice Green", "Ben White"],
+      "Violin": ["Carmen Lee", "Derek Zhao"],
+      "Flute": ["Ella Stone", "Frank Ruiz"],
+      "Guitar": ["Grace Kim", "Hector Tan"],
+      "Drums": ["Isabel Clark", "Jack Wu"],
+      "Voice": ["Kara Singh", "Leo Price"],
+      "Cello": ["Maya Chen", "Noah Patel"],
+      "Trumpet": ["Olivia Brooks", "Paul Adams"],
+      "Clarinet": ["Quinn Torres", "Rachel Young"],
+      "Saxophone": ["Sam Reed", "Tina Morales"]
+    };
+
+    const instrumentSelect = document.getElementById("instrumentSelect");
+    const teacherSelect = document.getElementById("teacherSelect");
+    const teacherGroup = document.getElementById("teacherGroup");
+    const submitBtn = document.getElementById("submitBtn");
+
+    Object.keys(instrumentData).forEach(inst => {
+      const opt = document.createElement("option");
+      opt.value = inst;
+      opt.textContent = inst;
+      instrumentSelect.appendChild(opt);
+    });
+
+    instrumentSelect && instrumentSelect.addEventListener("change", () => {
+      const selected = instrumentSelect.value;
+      teacherSelect.innerHTML = '<option value="none">No, I have no teacher preference</option>';
+      if (selected && instrumentData[selected]) {
+        instrumentData[selected].forEach(teacher => {
+          const opt = document.createElement("option");
+          opt.value = teacher;
+          opt.textContent = teacher;
+          teacherSelect.appendChild(opt);
+        });
+        teacherGroup.style.display = "block";
+        submitBtn.style.display = "none";
+      } else {
+        teacherGroup.style.display = "none";
+        submitBtn.style.display = "none";
+      }
+    });
+
+    teacherSelect && teacherSelect.addEventListener("change", () => {
+      submitBtn.style.display = "block";
+    });
+
+    document.getElementById("trialForm") && document.getElementById("trialForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const instrument = instrumentSelect.value;
+      const teacher = teacherSelect.value;
+      const nameSlug = teacher === "none" ? "general-inquiry" : teacher.toLowerCase().replace(/ /g, "-");
+      window.location.href = `enrollments/${nameSlug}.html`;
+    });
+  </script>
+</body>
+</html>

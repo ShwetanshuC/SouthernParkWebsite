@@ -1,0 +1,1101 @@
+/* Global styles for Southern Park Music School website */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+  /* Colour palette chosen to match the vibrant artwork used throughout the site */
+  --primary-color: #E76F51;
+  --secondary-color: #2A9D8F;
+  --accent-color: #E9C46A;
+  --dark-color: #B3926F;
+  --light-color: #F4F4F4;
+  --card-radius: 0.75rem;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--light-color);
+  color: var(--dark-color);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* -------------------------------------------------------------------- */
+/* Utility classes inspired by Bootstrap
+   Since external Bootstrap resources are unavailable, we replicate a subset
+   of commonly used utility classes for layout and spacing. This allows
+   existing markup (e.g., row/col classes) to remain largely unchanged. */
+
+/* Container: centers content and limits width */
+.container {
+  width: 90%;
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Flexbox utilities */
+.d-flex {
+  display: flex;
+}
+.align-items-center {
+  align-items: center;
+}
+.justify-content-between {
+  justify-content: space-between;
+}
+.justify-content-center {
+  justify-content: center;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+/* Column utilities (responsive) */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
+}
+.col-md-6 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  flex: 0 0 100%;
+  box-sizing: border-box;
+}
+.col-md-4 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  flex: 0 0 100%;
+  box-sizing: border-box;
+}
+.col-md-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  flex: 0 0 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .col-md-6 { flex: 0 0 50%; }
+  .col-md-4 { flex: 0 0 33.333%; }
+  .col-md-3 { flex: 0 0 25%; }
+}
+
+/* Spacing utilities */
+.mb-0 { margin-bottom: 0 !important; }
+.mb-2 { margin-bottom: 0.5rem !important; }
+.mb-3 { margin-bottom: 1rem !important; }
+.mb-4 { margin-bottom: 1.5rem !important; }
+.mb-5 { margin-bottom: 3rem !important; }
+.p-0 { padding: 0 !important; }
+.p-3 { padding: 1rem !important; }
+
+/* Responsive margin utilities */
+@media (min-width: 768px) {
+  .mb-md-0 { margin-bottom: 0 !important; }
+  .mb-md-4 { margin-bottom: 1.5rem !important; }
+}
+.mt-2 { margin-top: 0.5rem !important; }
+.mt-3 { margin-top: 1rem !important; }
+.mt-4 { margin-top: 1.5rem !important; }
+
+/* Text utilities */
+.text-center { text-align: center; }
+.fw-bold { font-weight: 700; }
+
+/* Margin utilities for inline spacing */
+.me-2 { margin-right: 0.5rem !important; }
+.ms-auto { margin-left: auto !important; }
+
+/* List utilities */
+.list-unstyled {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+/* Table utilities */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table th,
+.table td {
+  padding: 0.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+/* Button utilities */
+.btn {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: var(--card-radius);
+  cursor: pointer;
+  border: none;
+}
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+.btn-primary {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+.btn-primary:hover {
+  background-color: #d36449;
+  color: #fff;
+}
+
+/* Navbar styling */
+/* Navbar styling
+   We implement our own responsive navbar instead of relying on external Bootstrap
+   since network access to external CDNs may be restricted.  The navbar uses
+   flexbox for layout and includes a hamburger toggler for small screens. */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center; /* vertically center all nav content */
+  gap: 1rem;
+  padding: 0.6rem 0;
+  background-color: var(--dark-color);
+  color: #fff;
+  white-space: nowrap;
+}
+
+.navbar .container {
+  width: 100%;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 1rem;
+}
+
+/* Brand name */
+/* Brand name */
+.navbar-brand {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  height: 56px;
+  line-height: 56px;
+  margin-right: auto;      /* keeps it pinned to the far left */
+}
+
+/* Keep brand at far left */
+.navbar-brand { margin-right: auto; }
+
+.brand-wrap { display: flex; flex-direction: column; margin-right: auto; padding-left: 0.5rem; }
+
+/* Navbar toggler (hamburger icon) */
+.navbar-toggler {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Nav list */
+.navbar-nav {
+  display: flex;
+  align-items: center; /* vertical centering */
+  gap: 0.75rem; /* tighter gap */
+  margin-bottom: 0;
+  list-style: none;
+  padding-left: 0;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  justify-content: center; /* center links */
+}
+
+.navbar-nav .nav-item { display: flex; align-items: center; }
+.navbar-nav .nav-link {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 0.25rem;
+}
+/* CTA inside nav */
+.navbar-nav .nav-cta { height: 40px; display: inline-flex; align-items: center; }
+
+/* Nav links */
+.navbar-nav .nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-brand:hover {
+  color: var(--accent-color);
+}
+
+/* Active nav link */
+.navbar-nav .nav-link.active {
+  color: var(--accent-color);
+}
+
+/* Responsive behaviour: collapse nav items on small screens */
+@media (max-width: 991.98px) {
+  .navbar-nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--dark-color);
+    padding: 1rem 0;
+  }
+  /* When the nav is toggled open, display nav items */
+  .navbar-nav.show {
+    display: flex;
+  }
+  .navbar-toggler {
+    display: block;
+  }
+}
+
+/* Extra breathing room below fixed navbar */
+main { margin-top: 112px !important; }
+
+/* Hero section with custom slideshow */
+#heroCarousel {
+  position: relative;
+  height: 80vh;
+  min-height: 500px;
+  overflow: hidden;
+}
+
+#heroCarousel .carousel-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+#heroCarousel .carousel-item.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  z-index: 2;
+}
+
+.hero-overlay h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Section headings */
+h2.section-title {
+  margin-top: 2rem;          /* gap above the title (navbar gap handled by main) */
+  margin-bottom: 1.25rem;    /* slightly tighter than before */
+  font-weight: 600;
+  color: var(--dark-color);
+  text-align: center;
+}
+
+/* About and contact sections */
+/* About sits closer to the hero */
+.about-section { padding: 1.75rem 0 3rem; }
+
+/* Other sections keep generous spacing */
+.contact-section { padding: 3rem 0; }
+
+/* Limit the height of images in the about section for better layout */
+.about-section img {
+  max-height: 350px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: var(--card-radius);
+}
+
+.card-custom {
+  border-radius: var(--card-radius);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  border: none;
+  overflow: hidden;
+}
+
+.card-custom img {
+  border-top-left-radius: var(--card-radius);
+  border-top-right-radius: var(--card-radius);
+}
+
+/* Contact form */
+.contact-form .form-control {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  border-radius: var(--card-radius);
+  border: 1px solid var(--secondary-color);
+  background-color: #fff;
+  color: var(--dark-color);
+}
+
+/* Form label styling */
+.contact-form .form-label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+.contact-form .btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  border-radius: var(--card-radius);
+}
+
+.contact-form .btn-primary:hover {
+  background-color: #d36449;
+  border-color: #d36449;
+}
+
+/* Footer */
+footer {
+  background-color: var(--dark-color);
+  color: #fff;
+  padding: 2rem 0;
+}
+
+footer a {
+  color: var(--accent-color);
+}
+
+/* Faculty page flip cards */
+.instrument-section {
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+
+.instrument-section h3 {
+  margin-bottom: 1.5rem;
+  color: var(--dark-color);
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 250px;
+  height: 420px; /* increased to accommodate longer bios */
+  perspective: 1000px;
+  margin: 1rem auto;
+}
+
+/* On small screens, give even more height for readability */
+@media (max-width: 576px) {
+  .flip-card {
+    height: 560px;
+  }
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  border-radius: var(--card-radius);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.flip-card.rotate .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: var(--card-radius);
+}
+
+.flip-card-front {
+  background-color: #fff;
+  color: var(--dark-color);
+}
+
+.flip-card-front img {
+  width: 100%;
+  height: 60%;
+  object-fit: cover;
+  border-top-left-radius: var(--card-radius);
+  border-top-right-radius: var(--card-radius);
+}
+
+.flip-card-back {
+  background-color: var(--secondary-color);
+  color: #fff;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  /* remove space-between so content can scroll naturally */
+  padding: 1rem;
+  overflow-y: auto; /* allow long text to stay within the card */
+  -webkit-overflow-scrolling: touch; /* smoother scroll on mobile */
+}
+
+.flip-card-back a.btn {
+  align-self: center;
+  margin-top: auto;
+  border-radius: var(--card-radius);
+  background-color: var(--accent-color);
+  border: none;
+  color: var(--dark-color);
+  font-weight: 500;
+}
+
+/* Responsive grid for faculty page */
+.faculty-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Calendar styles */
+.calendar {
+  max-width: 800px;
+  margin: 2rem auto;
+  background-color: #fff;
+  border-radius: var(--card-radius);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.calendar table {
+  width: 100%;
+  text-align: center;
+}
+
+.calendar th, .calendar td {
+  padding: 0.8rem;
+}
+
+.calendar thead th {
+  background-color: var(--dark-color);
+  color: #fff;
+}
+
+.calendar tbody td {
+  border: 1px solid #eee;
+}
+
+.calendar tbody td:hover {
+  background-color: var(--accent-color);
+  color: var(--dark-color);
+  cursor: pointer;
+}
+
+/* Policies page */
+.policy-section {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: var(--card-radius);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.policy-section h3 {
+  color: var(--dark-color);
+  margin-top: 1.5rem;
+}
+
+/* Gallery page */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--card-radius);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.05);
+}
+
+/* Modal image styling */
+/* Modal styles
+   We create a custom modal to display gallery images.  The modal covers the
+   entire viewport with a semi‑transparent background and centers the image.  A
+   CSS class `.show` toggles its visibility. */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background-color: #fff;
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  max-width: 90%;
+  max-height: 90%;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.modal-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Close button inside the modal */
+.modal-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  font-size: 1.5rem;
+  color: var(--dark-color);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+/* Book a trial lesson button */
+.book-trial-btn {
+  background-color: var(--accent-color);
+  color: var(--dark-color);
+  padding: 0.5rem 1rem;
+  border-radius: var(--card-radius);
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.book-trial-btn:hover {
+  background-color: #dcbf55;
+}
+
+/* Ensure book trial button is right-aligned in navbar */
+.navbar .book-trial-btn {
+  margin-left: auto;
+}
+
+
+
+/* ===================== */
+/* Faculty Page Add-ons  */
+/* ===================== */
+
+/* Utility: visually hidden (but accessible) */
+.visually-hidden {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap; /* prevent line breaks */
+}
+
+/* Intro hero */
+#faculty-hero {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+#faculty-hero .lead {
+  margin: 0;
+}
+
+/* Toolbar: mini-nav + filters + search */
+/* Faculty toolbar: sticks flush to the top of its container/viewport */
+/* Faculty toolbar: sticks flush to the top of its container/viewport */
+/* Faculty toolbar: sticks flush to the top of its container/viewport */
+.faculty-toolbar {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 64px; /* sit just below the fixed navbar */
+  left: 0; right: 0;
+  z-index: 990; /* below the navbar, above content */
+  background: var(--light-color);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e9ecef;
+}
+/* Sticky search box inside toolbar to avoid mid-element sticking */
+/* Ensure sticky works: parent overflow must be visible */
+.instrument-section, .container { overflow: visible; }
+.filter-search { display: flex; justify-content: flex-end; }
+.search-box input[type="search"] {
+  border: 1px solid #d1d5db;
+  border-radius: var(--card-radius);
+  padding: 0.4rem 0.6rem;
+  min-width: 260px;
+}
+
+/* Badges and availability */
+.badges { margin-top: 0.25rem; display: flex; flex-wrap: wrap; gap: 0.35rem; justify-content: center; }
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: #f1f5f9;
+  color: #334155;
+  font-size: 0.75rem;
+  border: 1px solid #e2e8f0;
+}
+.availability { display: block; margin-top: 0.25rem; color: #475569; }
+
+/* Achievements carousel (simple marquee) */
+
+/* Testimonials */
+.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+.testimonials-grid blockquote { background: #fff; border-left: 4px solid var(--accent-color); padding: 1rem; border-radius: var(--card-radius); margin: 0; box-shadow: 0 2px 6px rgba(0,0,0,0.06); }
+.testimonials-grid footer { margin-top: 0.5rem; color: #475569; }
+
+/* FAQ */
+.faq-accordion details { background: #fff; border: 1px solid #e5e7eb; border-radius: var(--card-radius); padding: 0.5rem 0.75rem; }
+.faq-accordion details + details { margin-top: 0.5rem; }
+.faq-accordion summary { cursor: pointer; font-weight: 600; }
+
+
+/* Keyboard focus + reduced motion */
+:focus { outline: 3px solid var(--accent-color); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  .flip-card-inner { transition: none; }
+}
+
+/* Flip card tweaks when used as button */
+.flip-card[role="button"] { cursor: pointer; }
+.flip-card[role="button"]:hover .flip-card-inner { box-shadow: 0 6px 14px rgba(0,0,0,0.12); }
+/* Instrument headers */
+.instrument-header { text-align: center; margin-bottom: 1rem; }
+.instrument-header h3 { margin: 0; font-weight: 600; color: var(--dark-color); }
+.instrument-header .underline { display: block; width: 72px; height: 4px; background: var(--accent-color); border-radius: 2px; margin: 0.5rem auto 0; }
+
+
+/* Brand stack: contact line under the logo */
+.brand-contact {
+  margin-top: 2px;
+  font-size: 0.8rem;
+  line-height: 1.2;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.95;
+}
+.brand-contact a { color: #fff; text-decoration: none; }
+.brand-contact a:hover { text-decoration: underline; }
+.brand-contact .sep { color: #fff; opacity: 0.8; }
+
+
+/* Brand text + logo on one line */
+.brand-line { display: flex; align-items: center; gap: 0.5rem; }
+
+.brand-logo { height: 40px; width: auto; display: inline-block; }
+@media (min-width: 768px) { .brand-logo { height: 48px; } }
+@media (min-width: 1200px) { .brand-logo { height: 56px; } }
+
+
+
+/* ===================== */
+/* Home: Hero & Why Us   */
+/* ===================== */
+
+/* Hero subtitle under "We are Southern Park" */
+.hero-overlay .hero-subtitle {
+  margin-top: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 300;
+  letter-spacing: 0.2px;
+  color: #fff;
+  opacity: 0.95;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.35);
+}
+
+/* Why Us section spacing */
+.why-us-section { padding: 2.5rem 0; }
+
+/* Card look specific to Why Us */
+.why-us-section .card-custom {
+  background: #fff;
+  border: 1px solid #eef2f7;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+.why-us-section .card-custom .card-body { padding: 1.25rem; }
+.why-us-section .card-custom .card-title {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--dark-color);
+}
+.why-us-section .card-custom .card-text {
+  color: #475569;
+  line-height: 1.55;
+}
+
+/* Subtle accent bar at the top of each Why Us card */
+.why-us-section .card-custom::before {
+  content: "";
+  display: block;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+}
+
+/* Tighten gap between hero slideshow and first section */
+#heroCarousel { margin-bottom: 0; }
+.about-section .section-title { margin-top: 0.5rem; }
+
+/* Utility for equal-height cards if not present yet */
+.h-100 { height: 100%; }
+
+/* Subtle hover lift on Why Us cards */
+.why-us-section .card-custom:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+  border-color: #e5eaf0;
+}
+/* =========================================================
+   Mobile Navbar: vertical collapsible panel (driven by JS)
+   ========================================================= */
+nav.navbar { z-index: 1057; } /* keep above hero overlay */
+
+@media (max-width: 991.98px) {
+  /* Hide the collapse wrapper by default; JS toggles .show */
+  .navbar .navbar-collapse { display: none; }
+
+  /* When toggled */
+  .navbar .navbar-collapse.show { display: block; }
+
+  /* Turn the collapse into a full‑width dropdown panel */
+  .navbar .navbar-collapse.mobile-vertical {
+    position: absolute;
+    top: 56px;              /* sits just under the navbar line */
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: rgba(179, 146, 111, 0.98); /* based on --dark-color */
+    backdrop-filter: saturate(1.1) blur(4px);
+    padding: .5rem 0 .75rem;
+    border-bottom-left-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+    z-index: 1056;
+  }
+
+  /* Stack the nav items vertically with full‑width tap targets */
+  .navbar .navbar-collapse .navbar-nav {
+    display: flex !important;
+    flex-direction: column;
+    align-items: stretch;
+    gap: .25rem;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .navbar .navbar-collapse .navbar-nav .nav-link,
+  .navbar .navbar-collapse .nav-cta,
+  .navbar .navbar-collapse .book-trial-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: .65rem 1rem;
+    height: auto;
+  }
+}
+
+/* --- Mobile navbar: lean Bootstrap-friendly styling --- */
+nav.navbar { position: sticky; top: 0; z-index: 1057; }
+
+@media (max-width: 991.98px) {
+  /* Let Bootstrap handle show/hide; just give the panel some padding/bg */
+  .navbar .navbar-collapse { background: rgba(255,255,255,0.98); padding: .5rem 1rem; }
+  /* Stack vertically (we also set flex classes in HTML) */
+  .navbar .navbar-nav .nav-link, .navbar .nav-cta { padding: .6rem 0; }
+}
+
+/* ==== Mobile navbar: hamburger + slide-down panel (overrides) ==== */
+
+/* Hamburger icon (3 bars) */
+.navbar-toggler .hamburger {
+  display: inline-block;
+  width: 28px;
+  height: 20px;
+  position: relative;
+}
+.navbar-toggler .hamburger span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #fff;
+  display: block;
+  transform-origin: center;
+  transition: transform 200ms ease, opacity 180ms ease, top 200ms ease;
+}
+.navbar-toggler .hamburger span:nth-child(1) { top: 0; }
+.navbar-toggler .hamburger span:nth-child(2) { top: 9px; }
+.navbar-toggler .hamburger span:nth-child(3) { top: 18px; }
+
+/* Turn bars into an “X” when menu is open.
+   Your JS already toggles .collapsed on the button. */
+@media (max-width: 991.98px) {
+  .navbar-toggler:not(.collapsed) .hamburger span:nth-child(1) {
+    top: 9px; transform: rotate(45deg);
+  }
+  .navbar-toggler:not(.collapsed) .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+  .navbar-toggler:not(.collapsed) .hamburger span:nth-child(3) {
+    top: 9px; transform: rotate(-45deg);
+  }
+}
+
+/* Collapse wrapper: hidden by default on mobile */
+@media (max-width: 991.98px) {
+  .navbar .navbar-collapse {
+    display: block;           /* let us animate; we'll hide via transform */
+    position: absolute;
+    top: 56px;                /* just below the navbar line */
+    left: 0; right: 0;
+    background: rgba(255, 255, 255, 0.98);
+    padding: .5rem .75rem .75rem;
+    border-bottom-left-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    transform-origin: top center;
+    transform: scaleY(0);
+    transition: transform 200ms ease;
+    will-change: transform;
+    z-index: 1056;
+  }
+  /* Slide-down open state */
+  .navbar .navbar-collapse.show {
+    transform: scaleY(1);
+  }
+
+  /* Stack items vertically, full-width tap targets */
+  .navbar .navbar-collapse .navbar-nav {
+    display: flex !important;
+    flex-direction: column;
+    align-items: stretch;
+    gap: .25rem;
+    margin: 0; padding: 0;
+  }
+  .navbar .navbar-collapse .navbar-nav .nav-link,
+  .navbar .navbar-collapse .nav-cta,
+  .navbar .navbar-collapse .book-trial-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: .7rem 0.75rem;
+    height: auto;
+  }
+
+  /* Ensure readable colors on white panel */
+  .navbar .navbar-collapse .nav-link {
+    color: var(--dark-color);
+  }
+  .navbar .navbar-collapse .nav-link:hover {
+    color: var(--primary-color);
+  }
+
+  /* Make the toggler visible on mobile and enlarge its hit area */
+  .navbar-toggler {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: .25rem .5rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+  }
+}
+
+/* Ensure mobile menu link text is dark on white panel */
+@media (max-width: 991.98px) {
+  .navbar .navbar-collapse .navbar-nav .nav-link {
+    color: #ffffff !important;      /* dark slate */
+  }
+  .navbar .navbar-collapse .navbar-nav .nav-link:hover {
+    color: var(--primary-color) !important;
+  }
+
+  /* Keep the CTA readable on white */
+  .navbar .navbar-collapse .nav-cta {
+    background: var(--primary-color) !important;
+    color: #fff !important;
+  }
+}
+
+/* === Mobile: prevent horizontal scroll & make images fit === */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Safer sizing everywhere */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Media should never exceed viewport width */
+img, video, canvas, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;  /* avoid inline whitespace/descender quirks */
+}
+
+/* Hero: ensure no overflow from positioned slides */
+#heroCarousel { overflow: hidden; }
+#heroCarousel .carousel-item {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  inset: 0;              /* replaces top/left/width/height cleanly */
+}
+
+/* Rows: kill negative margins on narrow screens (prevents subtle overflow) */
+@media (max-width: 576px) {
+  .row { margin-left: 0; margin-right: 0; }
+}
+
+/* Flip cards: allow very small devices without overflow */
+@media (max-width: 360px) {
+  .faculty-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+  .flip-card { width: 100%; }
+}
+
+/* Nav panel: guarantee it cannot overflow horizontally */
+@media (max-width: 991.98px) {
+  .navbar .navbar-collapse {
+    left: 0;
+    right: 0;
+    width: 100%;
+    overflow-x: hidden;
+    /* solid white surface so text is readable the moment it opens */
+    background: #fff;
+  }
+}
+
+/* Long words/URLs will wrap instead of pushing layout wider */
+body { overflow-wrap: anywhere; }
+
+/* ===== Tighter vertical rhythm on the home page ===== */
+
+/* Headings: reduce default top/bottom space */
+h2.section-title {
+  margin-top: 0.5rem;       /* was 2rem */
+  margin-bottom: 0.75rem;   /* was 1.25rem */
+  line-height: 1.25;
+}
+
+/* Paragraphs: slightly tighter default between-paragraph spacing */
+.about-section p,
+.history-section p,
+.why-us-section p {
+  margin-top: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Section paddings: bring sections closer together */
+.about-section { padding: 1.25rem 0 2rem; }     /* was 1.75rem 0 3rem */
+.why-us-section { padding: 1.5rem 0 2rem; }     /* was 2.5rem 0 */
+.history-section { padding: 1.75rem 0; }        /* new: balanced */
+
+/* Card headings: reduce extra air */
+.card-custom .card-title { margin-bottom: 0.35rem; }
+
+/* Grid rows on small screens: remove negative margins to avoid phantom space */
+@media (max-width: 576px) {
+  .row { margin-left: 0; margin-right: 0; }
+}
+
+/* Hero text sizing & spacing tuned a bit for small devices */
+@media (max-width: 576px) {
+  .hero-overlay h1 { font-size: 2rem; }
+  .hero-overlay .hero-subtitle { font-size: 1rem; margin-top: 0.35rem; }
+}
+
+/* Section title spacing specifically when followed by a container of cards */
+.why-us-section .section-title + .row { margin-top: 0.5rem; }
+
+/* Tighten image card spacing in About/History */
+.about-section .card-custom,
+.history-section .card-custom {
+  margin-top: 0.5rem;
+}
+
+/* Remove yellow outline on mouse/touch focus, keep it for keyboard */
+:focus:not(:focus-visible) { outline: none !important; }
+
+/* If you want zero outline on flip-cards even for keyboard, keep this.
+   If you'd rather keep a11y focus, delete these two lines. */
+.flip-card:focus,
+.flip-card:focus-visible { outline: none !important; }
+
+/* Kill mobile tap highlight on cards/links/buttons */
+.flip-card,
+a,
+button,
+.nav-link { -webkit-tap-highlight-color: transparent; }
+
+/* Remove yellow focus outline on the faculty search input only */
+#faculty-search:focus,
+.search-box input[type="search"]:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* If Chrome/iOS adds any tinted focus/auto-fill background, neutralize it */
+.search-box input[type="search"]::-webkit-search-decoration,
+.search-box input[type="search"]::-webkit-search-cancel-button { display: none; }
+
+.search-box input[type="search"]:-webkit-autofill,
+.search-box input[type="search"]:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px #fff inset !important;
+  box-shadow: inset 0 0 0 1000px #fff !important;
+}
+

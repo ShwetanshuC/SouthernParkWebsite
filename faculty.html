@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Faculty – Southern Park Music School</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/gif" href="images/SPMS_542_icon.gif" />
+  <!-- Local Bootstrap CSS placeholder -->
+  <link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container d-flex align-items-center justify-content-between">
+      <div class="brand-wrap">
+        <div class="brand-line">
+          <a class="navbar-brand" href="index.html">Southern Park Music School</a>
+          <img src="images/SPMS_542_icon.gif" alt="Southern Park Music School logo" class="brand-logo" />
+        </div>
+        <div class="brand-contact">
+          <a href="tel:+17045550123">(704) 676-1002</a>
+          <span class="sep">•</span>
+          <a href="mailto:info@southernparkmusicschool.com">info@southernparkmusicschool.com</a>
+        </div>
+      </div>
+
+      <!-- Custom hamburger; JS toggles aria-expanded + .show on #mainNav -->
+      <button class="navbar-toggler" type="button"
+              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="hamburger" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 flex-lg-row flex-column gap-1">
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="faculty.html">Faculty</a></li>
+          <li class="nav-item"><a class="nav-link" href="calendar.html">Calendar</a></li>
+          <li class="nav-item"><a class="nav-link" href="policies.html">Policies</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item">
+            <a class="btn btn-primary nav-cta" href="mailto:info@southernparkmusicschool.com?subject=Book%20a%20Trial%20Lesson">
+              Book a Trial Lesson
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <h2 class="section-title">Meet Our Faculty</h2>
+
+      <!-- Faculty Hero Intro & Tools -->
+      <section id="faculty-hero" class="mb-4">
+        <p class="lead">Private lessons for all ages and levels in piano, strings, woodwinds, and voice. Study classical, jazz, or contemporary styles with our experienced faculty.</p>
+      </section>
+
+      <!-- Toolbar: only right-aligned search box -->
+      <section class="faculty-toolbar mb-4" aria-label="Faculty tools">
+        <div class="filter-search">
+          <div class="search-box ms-auto">
+            <label for="faculty-search" class="visually-hidden">Search faculty</label>
+            <input id="faculty-search" type="search" placeholder="Search by name or instrument" aria-label="Search faculty" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Piano -->
+      <section class="instrument-section" id="piano">
+        <header class="instrument-header">
+          <h3>Piano</h3>
+          <span class="underline" aria-hidden="true"></span>
+        </header>
+        <div class="faculty-grid">
+          <!-- Keep Director Card -->
+          <div class="flip-card" onclick="toggleFlip(this)" role="button" tabindex="0" aria-expanded="false" data-tags="piano">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="images/michael.jpg" alt="Michael Lehtinen" />
+                <div class="p-3">
+                  <h5>Dr. Michael Lehtinen</h5>
+                  <p>School Director</p>
+                </div>
+              </div>
+              <div class="flip-card-back" id="back-lehtinen">
+                <h5>Dr. Michael Lehtinen</h5>
+                <p>DMA and MM from the Eastman School of Music; BM from Oberlin Conservatory of Music.
+                   Dr. Lehtinen has been teaching at Southern Park Music School since 1995 and has been the Director since 2006. 
+                   His students participate in festivals and competitions throughout Charlotte and North Carolina. 
+                   In addition to teaching piano students of all ages, Dr. Lehtinen is the Organist at St. Stephen’s United Methodist Church.</p>
+                <a href="mailto:info@southernparkmusicschool.com?subject=Lesson%20Inquiry" class="btn">Request Lesson</a>
+              </div>
+            </div>
+          </div>
+          <!-- Amy Harris -->
+          <div class="flip-card" onclick="toggleFlip(this)" role="button" tabindex="0" aria-expanded="false" data-tags="piano">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="images/amy.jpeg" alt="Amy Harris" />
+                <div class="p-3">
+                  <h5>Dr. Amy Harris</h5>
+                  <p>Instructor of Piano</p>
+                </div>
+              </div>
+              <div class="flip-card-back" id="back-harris">
+                <h5>Dr. Amy Harris</h5>
+                <p>DMA from University of North Carolina at Greensboro, MM and BMus from University of Georgia.  Dr. Harris has taught private piano lessons in Charlotte since 2005.  Dr. Harris teaches students of all ages and skill levels, and her goal as a piano instructor is to teach her students every skill they will need to confidently perform, understand, and value the music they play.  She is a Nationally Certified Teacher of Music, a Registered Suzuki Piano Teacher, and a member of MTNA and the Charlotte Piano Teachers Forum.  Most of all, Dr. Harris enjoys teaching her students and sharing in the joys of their musical growth and endeavors.</p>
+                <a href="mailto:info@southernparkmusicschool.com?subject=Lesson%20Inquiry" class="btn">Request Lesson</a>
+              </div>
+            </div>
+          </div>
+          <!-- Sharon Stricklin -->
+          <div class="flip-card" onclick="toggleFlip(this)" role="button" tabindex="0" aria-expanded="false" data-tags="piano">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="images/stricklin.jpeg" alt="Sharon Stricklin" />
+                <div class="p-3">
+                  <h5>Sharon Stricklin</h5>
+                  <p>Instructor of Piano</p>
+                </div>
+              </div>
+              <div class="flip-card-back" id="back-stricklin">
+                <h5>Sharon Stricklin</h5>
+                <p>MM and BMus from Michigan State University.  Sharon has 40 years of piano teaching experience.  She has previously taught middle school and high school choral music, AP Music Theory, and AP Music History.  In addition to teaching, Sharon has been a church music director and accompanist.   Sharon enjoys teaching beginners very much as well as students who are more advanced.</p>
+                <a href="mailto:info@southernparkmusicschool.com?subject=Lesson%20Inquiry" class="btn">Request Lesson</a>
+              </div>
+            </div>
+          </div>
+          <!-- Gregory Thompson -->
+          <div class="flip-card" onclick="toggleFlip(this)" role="button" tabindex="0" aria-expanded="false" data-tags="piano">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="images/gregory.avif" alt="Gregory Thompson" />
+                <div class="p-3">
+                  <h5>Dr. Gregory Thompson</h5>
+                  <p>Instructor of Piano</p>
+                </div>
+              </div>
+              <div class="flip-card-back" id="back-thompson">
+                <h5>Dr. Gregory Thompson</h5>
+                <p>DMA from University of South Carolina. Dr. Thompson has been a recitalist and collaborative pianist in concert halls and colleges and universities in the U.S., Europe, and Asia. He enjoys sharing his joy for the piano with students of all ages and ability levels.</p>
+                <a href="mailto:info@southernparkmusicschool.com?subject=Lesson%20Inquiry" class="btn">Request Lesson</a>
+              </div>
+            </div>
+          </div>
+          <!-- Janice Williams (also teaches Voice) -->
+          <div class="flip-card" onclick="toggleFlip(this)" role="button" tabindex="0" aria-expanded="false" data-tags="piano voice">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="images/teacher1.jpeg" alt="Janice Williams" />
+                <div class="p-3">
+                  <h5>Janice Williams</h5>
+                  <p>Instructor of Piano & Voice</p>
+                </div>
+              </div>
+              <div class="flip-card-back" id="back-williams-piano">
+                <h5>Janice Williams</h5>
+                <p>MM from St. Louis Conservatory of Music; BMus from Tulsa University.  Janice has enjoyed teaching students of all ages for over 20 years.  She has performed with Opera Carolina for the last 12 years as a chorus member and in small roles.  She frequently sings at churches in the Charlotte area.  Janice has recently helped form  "In The Mood" trio which performs in the area.</p>
+                <a href="mailto:info@southernparkmusicschool.com?subject=Lesson%20Inquiry" class="btn">Request Lesson</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Strings -->
+      <section class="instrument-section" id="strings">
+        <header class="instrument-header">
+          <h3>Strings</h3>
+          <span class="underline" aria-hidden="true"></span>
+        </header>
+        <div class="faculty-grid">
+          <!-- Vasily Gorkovoy (Violin/Viola) -->
+          <div class="flip-card" onclick="toggleFlip(this)" role="button" tabindex="0" aria-expanded="false" data-tags="violin viola">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="images/violin.png" alt="Marscia Martinez-Mendoza" />
+                <div class="p-3">
+                  <h5>Marscia Martinez-Mendoza</h5>
+                  <p>Instructor of Violin & Viola</p>
+                </div>
+              </div>
+              <div class="flip-card-back" id="back-gorkovoy">
+                <h5>Marscia Martinez-Mendoza</h5>
+                <p>No description available yet for this teacher.</p>
+                <a href="mailto:info@southernparkmusicschool.com?subject=Lesson%20Inquiry" class="btn">Request Lesson</a>
+              </div>
+            </div>
+          </div>
+          <!-- Alasondro Linney (Violin/Viola) -->
+          <div class="flip-card" onclick="toggleFlip(this)" role="button" tabindex="0" aria-expanded="false" data-tags="violin viola">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="images/violin.png" alt="Alasondro Linney" />
+                <div class="p-3">
+                  <h5>Alasondro Linney</h5>
+                  <p>Instructor of Violin & Viola</p>
+                </div>
+              </div>
+              <div class="flip-card-back" id="back-linney">
+                <h5>Alasondro Linney</h5>
+                <p>BMus from North Carolina School of the Arts. Alasondro teaches mostly traditionally with the Suzuki method incorporated. He has performed with the Charlotte Symphony and the Alabama Symphony. He enjoys performing in the Charlotte area, and enjoys sharing his experience with his students.</p>
+                <a href="mailto:info@southernparkmusicschool.com?subject=Lesson%20Inquiry" class="btn">Request Lesson</a>
+              </div>
+            </div>
+          </div>
+          <!-- Tanja Bechtler (Cello) -->
+          <div class="flip-card" onclick="toggleFlip(this)" role="button" tabindex="0" aria-expanded="false" data-tags="cello">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="images/cello.png" alt="Tanja Bechtler" />
+                <div class="p-3">
+                  <h5>Tanja Bechtler</h5>
+                  <p>Instructor of Cello</p>
+                </div>
+              </div>
+              <div class="flip-card-back" id="back-bechtler">
+                <h5>Tanja Bechtler</h5>
+                <p>MM from Manhattan School of Music; BM from University of North Carolina School of the Arts. Tanja is the Founder and Director of the Bechtler Ensemble, and has had teaching experience at Gardner-Webb University, Queens University, and Central Piedmont University. Tanja performs regularly with symphony orchestras in the area.</p>
+                <a href="mailto:info@southernparkmusicschool.com?subject=Lesson%20Inquiry" class="btn">Request Lesson</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Woodwinds -->
+      <section class="instrument-section" id="woodwinds">
+        <header class="instrument-header">
+          <h3>Woodwinds</h3>
+          <span class="underline" aria-hidden="true"></span>
+        </header>
+        <div class="faculty-grid">
+          <!-- Elaina Palada (Flute) -->
+          <div class="flip-card" onclick="toggleFlip(this)" role="button" tabindex="0" aria-expanded="false" data-tags="flute">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="images/elaina.webp" alt="Elaina Palada" />
+                <div class="p-3">
+                  <h5>Elaina Palada</h5>
+                  <p>Instructor of Flute</p>
+                </div>
+              </div>
+              <div class="flip-card-back" id="back-palada">
+                <h5>Elaina Palada</h5>
+                <p>MM from Northwestern University; BM from Syracuse University. Elaina moved to the Charlotte area in September 2022 to work for Flute World, a flute specialty shop in Charlotte. In addition to working full-time, Elaina enjoys an active career as a performer and teacher. She has performed with several orchestras, and is a substitute flutist for multiple regional orchestras. She is also an in-demand performer for various churches throughout the Carolinas. Originally from Central New York, Elaina has been teaching flute lessons for more than five years and loves sharing her passion for flute with students of all ages!</p>
+                <a href="mailto:info@southernparkmusicschool.com?subject=Lesson%20Inquiry" class="btn">Request Lesson</a>
+              </div>
+            </div>
+          </div>
+          <!-- Candace Schmitt (Oboe) -->
+          <div class="flip-card" onclick="toggleFlip(this)" role="button" tabindex="0" aria-expanded="false" data-tags="oboe">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="images/flute.png" alt="Candace Schmitt" />
+                <div class="p-3">
+                  <h5>Candace Schmitt</h5>
+                  <p>Instructor of Oboe</p>
+                </div>
+              </div>
+              <div class="flip-card-back" id="back-schmitt">
+                <h5>Candace Schmitt</h5>
+                <p>BA, University of North Carolina at Charlotte; BM, Appalachian State University. Candace plays the oboe, flute, and English horn. She is an Adjunct Instructor of Music at Gardner-Webb University. Candace enjoys performing with the Charlotte Civic Orchestra and with the Charlotte Flute Choir. She is especially thrilled when a student catches her passion for the oboe!</p>
+                <a href="mailto:info@southernparkmusicschool.com?subject=Lesson%20Inquiry" class="btn">Request Lesson</a>
+              </div>
+            </div>
+          </div>
+          <!-- Mark Catoe (Saxophone) -->
+          <div class="flip-card" onclick="toggleFlip(this)" role="button" tabindex="0" aria-expanded="false" data-tags="saxophone">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="images/saxophone.png" alt="Mark Catoe" />
+                <div class="p-3">
+                  <h5>Mark Catoe</h5>
+                  <p>Instructor of Saxophone</p>
+                </div>
+              </div>
+              <div class="flip-card-back" id="back-catoe-sax">
+                <h5>Mark Catoe</h5>
+                <p>BMusEd from Winthrop University. Multi-instrumentalist Mark Catoe has been working in the area as a musician for than six years, including two years on a cruise ship. Notable performances include engagements with the Charlotte Symphony, The Temptations, and The Four Tops. In addition to teaching saxophone and clarinet, Mark frequently performs as a jazz pianist.</p>
+                <a href="mailto:info@southernparkmusicschool.com?subject=Lesson%20Inquiry" class="btn">Request Lesson</a>
+              </div>
+            </div>
+          </div>
+          <!-- Mark Catoe (Clarinet) -->
+          <div class="flip-card" onclick="toggleFlip(this)" role="button" tabindex="0" aria-expanded="false" data-tags="clarinet">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="images/flute.png" alt="Mark Catoe" />
+                <div class="p-3">
+                  <h5>Mark Catoe</h5>
+                  <p>Instructor of Clarinet</p>
+                </div>
+              </div>
+              <div class="flip-card-back" id="back-catoe-clarinet">
+                <h5>Mark Catoe</h5>
+                <p>BMusEd from Winthrop University. Multi-instrumentalist Mark Catoe has been working in the area as a musician for than six years, including two years on a cruise ship. Notable performances include engagements with the Charlotte Symphony, The Temptations, and The Four Tops. In addition to teaching saxophone and clarinet, Mark frequently performs as a jazz pianist.</p>
+                <a href="mailto:info@southernparkmusicschool.com?subject=Lesson%20Inquiry" class="btn">Request Lesson</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Voice -->
+      <section class="instrument-section" id="voice">
+        <header class="instrument-header">
+          <h3>Voice</h3>
+          <span class="underline" aria-hidden="true"></span>
+        </header>
+        <div class="faculty-grid">
+          <!-- Janice Williams (Voice) -->
+          <div class="flip-card" onclick="toggleFlip(this)" role="button" tabindex="0" aria-expanded="false" data-tags="voice">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="images/teacher1.jpeg" alt="Janice Williams" />
+                <div class="p-3">
+                  <h5>Janice Williams</h5>
+                  <p>Instructor of Voice</p>
+                </div>
+              </div>
+              <div class="flip-card-back" id="back-williams-voice">
+                <h5>Janice Williams</h5>
+                <p>MM from St. Louis Conservatory of Music; BMus from Tulsa University.  Janice has enjoyed teaching students of all ages for over 20 years.  She has performed with Opera Carolina for the last 12 years as a chorus member and in small roles.  She frequently sings at churches in the Charlotte area.  Janice has recently helped form  "In The Mood" trio which performs in the area.</p>
+                <a href="mailto:info@southernparkmusicschool.com?subject=Lesson%20Inquiry" class="btn">Request Lesson</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Our Administrator! -->
+      <section class="instrument-section" id="administrator">
+        <header class="instrument-header">
+          <h3>Administrator</h3>
+          <span class="underline" aria-hidden="true"></span>
+        </header>
+        <div class="faculty-grid">
+          <!-- Gay Pappin -->
+          <div class="flip-card" onclick="toggleFlip(this)" role="button" tabindex="0" aria-expanded="false" data-tags="administrator">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="images/gay.jpeg" alt="Gay Pappin" />
+                <div class="p-3">
+                  <h5>Dr. Gay Pappin</h5>
+                  <p>Administrative Assistant</p>
+                </div>
+              </div>
+              <div class="flip-card-back" id="back-pappin">
+                <h5>Dr. Gay Pappin</h5>
+                <p>DMA and MM from Louisiana State University.  BMusEd from Ouachita Baptist University.  Gay has taught piano, organ, theory, and music appreciation in several universities.  She has been a church pianist or organist for most of her life.  Gay especially enjoys working with the families at Southern Park Music School.</p>
+                <a href="mailto:info@southernparkmusicschool.com?subject=General%20inquiry" class="btn">Contact</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container text-center">
+      <p class="mb-2">&copy; 2025 Southern Park Music School. All rights reserved.</p>
+      <p>
+        Follow us on
+        <a href="https://www.facebook.com/SouthernParkMusicSchool/" class="me-2">Facebook</a>
+        <a href="https://www.instagram.com/explore/locations/37043136/southern-park-music-school/" class="me-2">Instagram</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS placeholder -->
+  <script src="bootstrap/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="scripts.js"></script>
+</body>
+</html>

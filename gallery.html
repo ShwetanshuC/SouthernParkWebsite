@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery – Southern Park Music School</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/gif" href="images/SPMS_542_icon.gif" />
+  <!-- Local Bootstrap CSS placeholder -->
+  <link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container d-flex align-items-center justify-content-between">
+      <div class="brand-wrap">
+        <div class="brand-line">
+          <a class="navbar-brand" href="index.html">Southern Park Music School</a>
+          <img src="images/SPMS_542_icon.gif" alt="Southern Park Music School logo" class="brand-logo" />
+        </div>
+        <div class="brand-contact">
+          <a href="tel:+17045550123">(704) 676-1002</a>
+          <span class="sep">•</span>
+          <a href="mailto:info@southernparkmusicschool.com">info@southernparkmusicschool.com</a>
+        </div>
+      </div>
+
+      <!-- Custom hamburger; JS toggles aria-expanded + .show on #mainNav -->
+      <button class="navbar-toggler" type="button"
+              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="hamburger" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 flex-lg-row flex-column gap-1">
+          <li class="nav-item"><a class="nav-link" href="faculty.html">Faculty</a></li>
+          <li class="nav-item"><a class="nav-link" href="calendar.html">Calendar</a></li>
+          <li class="nav-item"><a class="nav-link" href="policies.html">Policies</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="gallery.html">Gallery</a></li>
+          <li class="nav-item">
+            <a class="btn btn-primary nav-cta" href="mailto:info@southernparkmusicschool.com?subject=Book%20a%20Trial%20Lesson">
+              Book a Trial Lesson
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <h2 class="section-title">Gallery</h2>
+      <p class="text-center">Explore moments from lessons, recitals and student life at Southern Park.</p>
+      <div class="gallery-grid">
+        <!-- Gallery images -->
+        <img src="images/carnegie.jpeg" alt="Music art" onclick="openModal(this)" />
+        <img src="images/gallery1.jpg" alt="Musical collage" onclick="openModal(this)" />
+        <img src="images/gallery2.jpg" alt="Colorful notes" onclick="openModal(this)" />
+        <img src="images/gallery3.jpg" alt="Piano" onclick="openModal(this)" />
+        <img src="images/gallery4.jpg" alt="Guitar" onclick="openModal(this)" />
+        <img src="images/gallery5.jpg" alt="Violin" onclick="openModal(this)" />
+        <img src="images/gallery6.jpg" alt="Drums" onclick="openModal(this)" />
+        <img src="images/gallery7.jpg" alt="Flute" onclick="openModal(this)" />
+        <img src="images/gallery8.jpg" alt="Saxophone" onclick="openModal(this)" />
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal for enlarged images (custom) -->
+  <div id="imageModal" class="modal">
+    <div class="modal-content">
+      <button id="modalCloseBtn" class="modal-close" aria-label="Close">&times;</button>
+      <img id="modalImage" src="" alt="Gallery image" class="modal-img" />
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container text-center">
+      <p class="mb-2">&copy; 2025 Southern Park Music School. All rights reserved.</p>
+      <p>
+        Follow us on
+        <a href="#" class="me-2">Facebook</a>
+        <a href="#" class="me-2">Instagram</a>
+        <a href="#">Twitter</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Local Bootstrap JS placeholder (empty) -->
+  <script src="bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="scripts.js"></script>
+</body>
+</html>
