@@ -140,16 +140,21 @@ document.addEventListener('DOMContentLoaded', function () {
   // Initialize hero slideshow (if present)
   initHeroCarousel();
 
-  // ===== Alert banner dismiss =====
-  var dismissBtn = document.getElementById('dismissBanner');
-  if (dismissBtn) {
-    dismissBtn.addEventListener('click', function () {
-      var banner = document.getElementById('alertBanner');
-      if (banner) {
-        banner.classList.add('dismissed');
-        setTimeout(function () { banner.remove(); }, 350);
+  // ===== Alert banner — hide if already dismissed this session =====
+  var banner = document.getElementById('alertBanner');
+  if (banner) {
+    if (sessionStorage.getItem('weatherDismissed')) {
+      banner.remove();
+    } else {
+      var dismissBtn = document.getElementById('dismissBanner');
+      if (dismissBtn) {
+        dismissBtn.addEventListener('click', function () {
+          sessionStorage.setItem('weatherDismissed', '1');
+          banner.classList.add('dismissed');
+          setTimeout(function () { banner.remove(); }, 350);
+        });
       }
-    });
+    }
   }
 
   // ===== Navbar shadow on scroll + hero parallax =====
