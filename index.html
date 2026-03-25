@@ -26,15 +26,23 @@
 </head>
 <body class="bg-stone-50">
 
+  <!-- Alert Banner (above navbar, dismissible) -->
+  <div id="alertBanner" class="bg-red-600 text-white text-center text-sm font-medium py-2 px-10 relative">
+    In the event of adverse weather, please contact your teacher individually to arrange a virtual lesson.
+    <button id="dismissBanner" class="absolute right-3 top-1/2 -translate-y-1/2 w-7 h-7 inline-flex items-center justify-center rounded-full hover:bg-white/20 transition-colors" aria-label="Dismiss warning">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+
   <!-- Navbar -->
   <nav class="sticky top-0 z-50 bg-stone-800 border-b border-stone-700" style="position:sticky">
     <div class="max-w-7xl mx-auto px-6 flex items-center justify-between py-3">
       <div class="flex flex-col">
-        <div class="flex items-center gap-2">
-          <a href="index.html" class="font-display font-bold text-xl text-white tracking-tight" style="font-family:'Playfair Display',Georgia,serif;text-decoration:none">Southern Park Music School</a>
-          <img src="images/SPMS_542_icon.gif" alt="SPMS logo" class="h-9 w-auto" />
+        <div class="flex items-center gap-2.5">
+          <img src="images/SPMS_542_icon.gif" alt="SPMS logo" class="h-8 w-auto flex-shrink-0" />
+          <a href="index.html" class="font-bold text-lg text-white tracking-tight leading-none" style="font-family:'Playfair Display',Georgia,serif;text-decoration:none">Southern Park Music School</a>
         </div>
-        <div class="flex items-center gap-2 text-xs text-stone-400 mt-0.5">
+        <div class="flex items-center gap-2 text-xs text-stone-400 mt-1 pl-10">
           <a href="tel:+17046761002" class="hover:text-white transition-colors" style="text-decoration:none">(704) 676-1002</a>
           <span class="text-stone-600">•</span>
           <a href="mailto:info@southernparkmusicschool.com" class="hover:text-white transition-colors" style="text-decoration:none">info@southernparkmusicschool.com</a>
@@ -45,24 +53,19 @@
         <span class="hamburger" aria-hidden="true"><span></span><span></span><span></span></span>
         <span class="visually-hidden">Menu</span>
       </button>
-      <div class="navbar-collapse hidden lg:flex items-center gap-1" id="mainNav">
-        <ul class="flex items-center gap-1 list-none m-0 p-0">
-          <li><a href="faculty.html" class="text-stone-300 hover:text-white text-sm font-medium px-3 py-2 rounded transition-colors" style="text-decoration:none">Faculty</a></li>
-          <li><a href="calendar.html" class="text-stone-300 hover:text-white text-sm font-medium px-3 py-2 rounded transition-colors" style="text-decoration:none">Calendar</a></li>
-          <li><a href="policies.html" class="text-stone-300 hover:text-white text-sm font-medium px-3 py-2 rounded transition-colors" style="text-decoration:none">Policies</a></li>
-          <li><a href="gallery.html" class="text-stone-300 hover:text-white text-sm font-medium px-3 py-2 rounded transition-colors" style="text-decoration:none">Gallery</a></li>
-          <li class="ml-2">
-            <a href="mailto:info@southernparkmusicschool.com?subject=Book%20a%20Trial%20Lesson" class="bg-orange-600 hover:bg-orange-700 text-white text-sm font-semibold px-4 py-2 rounded-full transition-colors whitespace-nowrap" style="text-decoration:none">Book a Trial Lesson</a>
+      <div class="navbar-collapse hidden lg:flex items-center gap-0.5" id="mainNav">
+        <ul class="flex items-center gap-0.5 list-none m-0 p-0">
+          <li><a href="faculty.html" class="nav-link-ul text-stone-300 hover:text-white text-sm font-medium px-3 py-2 rounded-md hover:bg-white/8 transition-colors" style="text-decoration:none">Faculty</a></li>
+          <li><a href="calendar.html" class="nav-link-ul text-stone-300 hover:text-white text-sm font-medium px-3 py-2 rounded-md hover:bg-white/8 transition-colors" style="text-decoration:none">Calendar</a></li>
+          <li><a href="policies.html" class="nav-link-ul text-stone-300 hover:text-white text-sm font-medium px-3 py-2 rounded-md hover:bg-white/8 transition-colors" style="text-decoration:none">Policies</a></li>
+          <li><a href="gallery.html" class="nav-link-ul text-stone-300 hover:text-white text-sm font-medium px-3 py-2 rounded-md hover:bg-white/8 transition-colors" style="text-decoration:none">Gallery</a></li>
+          <li class="ml-3">
+            <a href="mailto:info@southernparkmusicschool.com?subject=Book%20a%20Trial%20Lesson" class="inline-flex items-center justify-center leading-none bg-orange-600 hover:bg-orange-500 text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-all hover:shadow-lg hover:shadow-orange-600/30 hover:-translate-y-px whitespace-nowrap" style="text-decoration:none">Book a Trial Lesson</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-
-  <!-- Weather Banner -->
-  <div class="bg-amber-400 text-amber-900 text-center text-sm font-medium py-2 px-4">
-    In the event of adverse weather, please contact your teacher individually to arrange a virtual lesson.
-  </div>
 
   <!-- Hero -->
   <header>
@@ -71,13 +74,17 @@
       <div class="carousel-item" style="background-image: url('images/gallery1.jpg')"></div>
       <div class="carousel-item" style="background-image: url('images/gallery2.jpg')"></div>
       <div class="hero-overlay">
-        <h1>Where the Good Become Great</h1>
-        <span class="hero-subtitle">Private music lessons in Charlotte, NC — inspiring students since 1964</span>
+        <div class="hero-label">Charlotte, NC &nbsp;·&nbsp; Est. 1964</div>
+        <h1>Where the Good<br><em>Become Great</em></h1>
+        <span class="hero-subtitle">Private music lessons for all ages — inspiring students for over 60 years</span>
         <div class="hero-ctas">
-          <a class="btn btn-primary" href="mailto:info@southernparkmusicschool.com?subject=Book%20a%20Trial%20Lesson">Book a Trial Lesson</a>
-          <a class="btn btn-outline-light" href="#about">Learn More</a>
+          <a class="btn btn-primary" href="mailto:info@southernparkmusicschool.com?subject=Book%20a%20Trial%20Lesson" style="padding:0.75rem 2rem;font-size:0.95rem">Book a Trial Lesson</a>
+          <a class="btn btn-outline-light" href="#about" style="padding:0.75rem 2rem;font-size:0.95rem">Learn More</a>
         </div>
       </div>
+      <a href="#about" class="hero-scroll-cue" aria-label="Scroll down">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28"><path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg>
+      </a>
     </div>
   </header>
 
@@ -85,19 +92,19 @@
   <section class="bg-stone-800 py-6" aria-label="School highlights">
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid grid-cols-2 md:grid-cols-4">
-        <div class="text-center py-3 border-r border-stone-700">
-          <span class="block font-bold text-3xl text-orange-400" style="font-family:'Playfair Display',Georgia,serif">60+</span>
+        <div class="text-center py-3 border-r border-stone-700 reveal">
+          <span class="block font-bold text-3xl text-orange-400 stat-num" data-count="60" data-suffix="+" style="font-family:'Playfair Display',Georgia,serif">60+</span>
           <span class="block text-xs font-medium text-stone-400 uppercase tracking-widest mt-1">Years of Excellence</span>
         </div>
-        <div class="text-center py-3 border-r border-stone-700">
-          <span class="block font-bold text-3xl text-orange-400" style="font-family:'Playfair Display',Georgia,serif">8</span>
+        <div class="text-center py-3 border-r border-stone-700 reveal reveal-delay-1">
+          <span class="block font-bold text-3xl text-orange-400 stat-num" data-count="8" data-suffix="" style="font-family:'Playfair Display',Georgia,serif">8</span>
           <span class="block text-xs font-medium text-stone-400 uppercase tracking-widest mt-1">Private Studios</span>
         </div>
-        <div class="text-center py-3 border-r border-stone-700">
-          <span class="block font-bold text-3xl text-orange-400" style="font-family:'Playfair Display',Georgia,serif">10+</span>
+        <div class="text-center py-3 border-r border-stone-700 reveal reveal-delay-2">
+          <span class="block font-bold text-3xl text-orange-400 stat-num" data-count="10" data-suffix="+" style="font-family:'Playfair Display',Georgia,serif">10+</span>
           <span class="block text-xs font-medium text-stone-400 uppercase tracking-widest mt-1">Instruments Taught</span>
         </div>
-        <div class="text-center py-3">
+        <div class="text-center py-3 reveal reveal-delay-3">
           <span class="block font-bold text-3xl text-orange-400" style="font-family:'Playfair Display',Georgia,serif">Monthly</span>
           <span class="block text-xs font-medium text-stone-400 uppercase tracking-widest mt-1">Student Recitals</span>
         </div>
@@ -113,13 +120,13 @@
         <h2 class="font-bold text-3xl text-stone-900 text-center mb-1" style="font-family:'Playfair Display',Georgia,serif">About Us</h2>
         <div class="w-12 h-0.5 bg-orange-600 mx-auto mb-10"></div>
         <div class="grid md:grid-cols-2 gap-12 items-center">
-          <div>
+          <div class="reveal">
             <p class="text-stone-600 leading-relaxed mb-4">Welcome to Southern Park Music School, where creativity and excellence meet. Our mission is to inspire students of all ages and abilities through personalised lessons, dynamic ensemble experiences, and immersive performance opportunities.</p>
             <p class="text-stone-600 leading-relaxed mb-6">Whether you're discovering music for the first time or preparing for a professional career, our dedicated faculty are here to guide you every step of the way. We offer instruction across a wide range of instruments and musical styles — in a supportive, welcoming community.</p>
-            <a href="faculty.html" class="inline-block bg-orange-600 hover:bg-orange-700 text-white font-semibold px-6 py-2.5 rounded-full transition-colors" style="text-decoration:none">Meet Our Faculty</a>
+            <a href="faculty.html" class="inline-flex items-center justify-center leading-none bg-orange-600 hover:bg-orange-500 text-white font-semibold px-7 py-3 rounded-full transition-all hover:shadow-lg hover:shadow-orange-600/30 hover:-translate-y-px" style="text-decoration:none">Meet Our Faculty</a>
           </div>
-          <div class="rounded-xl overflow-hidden shadow-md">
-            <img src="images/school-new.jpg" class="w-full h-72 object-cover" alt="Southern Park Music School" />
+          <div class="rounded-xl overflow-hidden shadow-md reveal reveal-delay-2 transition-all duration-300 hover:shadow-xl">
+            <img src="images/school-new.jpg" class="w-full h-72 object-cover transition-transform duration-500 hover:scale-105" alt="Southern Park Music School" />
           </div>
         </div>
       </div>
@@ -132,25 +139,25 @@
         <div class="w-12 h-0.5 bg-orange-600 mx-auto mb-4"></div>
         <p class="text-stone-500 text-center max-w-2xl mx-auto mb-10">Since 1964, we've helped Charlotte families discover the joy of music with inspiring teachers, a welcoming community, and spaces built for sound.</p>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-          <div class="bg-white rounded-xl p-6 border border-stone-200 hover:-translate-y-1 transition-transform">
+          <div class="card-lift bg-white rounded-xl p-6 border border-stone-200 reveal">
             <h5 class="font-semibold text-stone-900 mb-2" style="font-family:'Playfair Display',Georgia,serif">Recitals that Inspire</h5>
             <p class="text-stone-500 text-sm leading-relaxed">We host student performances about once a month during the school year — recitals are always free for performers and their guests.</p>
           </div>
-          <div class="bg-white rounded-xl p-6 border border-stone-200 hover:-translate-y-1 transition-transform">
+          <div class="card-lift bg-white rounded-xl p-6 border border-stone-200 reveal reveal-delay-1">
             <h5 class="font-semibold text-stone-900 mb-2" style="font-family:'Playfair Display',Georgia,serif">Studios Built for Sound</h5>
             <p class="text-stone-500 text-sm leading-relaxed">Eight private studios, each with an acoustic piano. Every piano lesson is taught on a <strong>grand piano</strong> for the best feel and tone.</p>
           </div>
-          <div class="bg-white rounded-xl p-6 border border-stone-200 hover:-translate-y-1 transition-transform">
+          <div class="card-lift bg-white rounded-xl p-6 border border-stone-200 reveal reveal-delay-2">
             <h5 class="font-semibold text-stone-900 mb-2" style="font-family:'Playfair Display',Georgia,serif">Exceptional Faculty</h5>
             <p class="text-stone-500 text-sm leading-relaxed">Experienced performers and educators — many holding advanced music degrees — with a genuine passion for teaching every student.</p>
           </div>
-          <div class="bg-white rounded-xl p-6 border border-stone-200 hover:-translate-y-1 transition-transform">
+          <div class="card-lift bg-white rounded-xl p-6 border border-stone-200 reveal reveal-delay-3">
             <h5 class="font-semibold text-stone-900 mb-2" style="font-family:'Playfair Display',Georgia,serif">Student Success</h5>
             <p class="text-stone-500 text-sm leading-relaxed">Our students thrive in festivals and competitions, earn awards, and develop a lifelong love of music that extends well beyond lessons.</p>
           </div>
         </div>
-        <div class="text-center mt-10">
-          <a href="mailto:info@southernparkmusicschool.com?subject=Enroll%20Today" class="inline-block bg-orange-600 hover:bg-orange-700 text-white font-semibold px-6 py-2.5 rounded-full transition-colors" style="text-decoration:none">Enroll Today</a>
+        <div class="text-center mt-10 reveal">
+          <a href="mailto:info@southernparkmusicschool.com?subject=Enroll%20Today" class="inline-flex items-center justify-center leading-none bg-orange-600 hover:bg-orange-500 text-white font-semibold px-7 py-3 rounded-full transition-all hover:shadow-lg hover:shadow-orange-600/30 hover:-translate-y-px" style="text-decoration:none">Enroll Today</a>
         </div>
       </div>
     </section>

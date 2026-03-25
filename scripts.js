@@ -140,6 +140,63 @@ document.addEventListener('DOMContentLoaded', function () {
   // Initialize hero slideshow (if present)
   initHeroCarousel();
 
+  // ===== Alert banner dismiss =====
+  var dismissBtn = document.getElementById('dismissBanner');
+  if (dismissBtn) {
+    dismissBtn.addEventListener('click', function () {
+      var banner = document.getElementById('alertBanner');
+      if (banner) {
+        banner.classList.add('dismissed');
+        setTimeout(function () { banner.remove(); }, 350);
+      }
+    });
+  }
+
+  // ===== Navbar shadow on scroll =====
+  var mainNav = document.querySelector('nav');
+  if (mainNav) {
+    window.addEventListener('scroll', function () {
+      mainNav.classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
+  }
+
+  // ===== Scroll reveal =====
+  var revealEls = document.querySelectorAll('.reveal');
+  if (revealEls.length && 'IntersectionObserver' in window) {
+    var revealObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          revealObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(function (el) { revealObs.observe(el); });
+  }
+
+  // ===== Stat counter =====
+  document.querySelectorAll('[data-count]').forEach(function (el) {
+    var target = parseInt(el.dataset.count, 10);
+    var suffix = el.dataset.suffix || '';
+    var duration = 1400;
+    var started = false;
+    var statObs = new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting || started) return;
+      started = true;
+      var startTime = null;
+      function step(ts) {
+        if (!startTime) startTime = ts;
+        var prog = Math.min((ts - startTime) / duration, 1);
+        var eased = 1 - Math.pow(1 - prog, 3);
+        el.textContent = Math.floor(eased * target) + suffix;
+        if (prog < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+      statObs.disconnect();
+    }, { threshold: 0.5 });
+    statObs.observe(el);
+  });
+
   // =============================
   // Faculty toolbar interactions
   // =============================

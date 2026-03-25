@@ -419,3 +419,99 @@ header { position: relative; display: block; line-height: 0; font-size: 0; }
 :focus:not(:focus-visible) { outline: none; }
 .flip-card:focus, .flip-card:focus-visible { outline: none; }
 .flip-card, a, button { -webkit-tap-highlight-color: transparent; }
+
+/* ===== Alert Banner ===== */
+#alertBanner {
+  transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+  max-height: 80px;
+  overflow: hidden;
+}
+#alertBanner.dismissed {
+  max-height: 0;
+  opacity: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* ===== Navbar shadow on scroll ===== */
+nav.scrolled { box-shadow: 0 4px 16px rgba(0,0,0,0.25); }
+
+/* ===== Nav link hover underline ===== */
+.nav-link-ul {
+  position: relative;
+  overflow: hidden;
+}
+.nav-link-ul::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  right: 50%;
+  height: 2px;
+  background: #f97316;
+  transition: left 0.2s ease, right 0.2s ease;
+  border-radius: 1px;
+}
+.nav-link-ul:hover::after,
+.nav-link-ul.active-link::after { left: 12px; right: 12px; }
+
+/* ===== Hero label (editorial) ===== */
+.hero-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 0.85rem;
+}
+
+/* ===== Hero scroll cue ===== */
+.hero-scroll-cue {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.55);
+  animation: scrollBounce 2.2s ease-in-out infinite;
+  z-index: 3;
+  transition: color 0.2s;
+  text-decoration: none;
+  display: block;
+}
+.hero-scroll-cue:hover { color: rgba(255,255,255,0.9); }
+@keyframes scrollBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(7px); }
+}
+
+/* ===== Scroll reveal ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ===== Stat strip count ===== */
+.stat-num {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+.stat-num:hover { transform: scale(1.1); }
+
+/* ===== Card hover lift ===== */
+.card-lift {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+}
