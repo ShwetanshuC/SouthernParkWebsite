@@ -219,17 +219,22 @@ header { position: relative; display: block; line-height: 0; font-size: 0; }
     border-radius: 4px;
   }
   .navbar-collapse ul li a:hover { color: #fff; background: rgba(255,255,255,0.06); }
-  .navbar-collapse ul .cta-item a {
-    display: block;
-    text-align: center;
-    margin: 0.5rem 0 0;
-    padding: 0.65rem 1rem;
-    background: #ea580c;
-    color: #fff;
-    border-radius: 999px;
-    font-weight: 600;
+  .navbar-collapse ul .cta-item a,
+  .navbar-collapse ul li:last-child a {
+    display: block !important;
+    text-align: center !important;
+    margin: 0.5rem 0 0 !important;
+    padding: 0.65rem 1rem !important;
+    background: #ea580c !important;
+    color: #fff !important;
+    border-radius: 999px !important;
+    font-weight: 600 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
-  .navbar-collapse ul .cta-item a:hover { background: #c2410c; }
+  .navbar-collapse ul li:last-child { margin-left: 0 !important; }
+  .navbar-collapse ul .cta-item a:hover,
+  .navbar-collapse ul li:last-child a:hover { background: #c2410c !important; }
 }
 
 /* ===== Visually hidden ===== */
