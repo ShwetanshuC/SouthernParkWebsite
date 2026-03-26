@@ -157,6 +157,19 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  // ===== Smooth scroll with navbar offset for hero anchor links =====
+  document.querySelectorAll('a[href="#about"], a[href="#why-us"], a[href="#history"]').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      var target = document.querySelector(link.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      var nav = document.querySelector('nav');
+      var navH = nav ? nav.offsetHeight : 0;
+      var top = target.getBoundingClientRect().top + window.scrollY - navH - 8;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    });
+  });
+
   // ===== Navbar shadow on scroll + hero parallax =====
   var mainNav = document.querySelector('nav');
   var heroSlides = document.querySelectorAll('#heroCarousel .carousel-item');
