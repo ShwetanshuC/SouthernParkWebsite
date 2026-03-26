@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var sy = window.scrollY;
     if (mainNav) mainNav.classList.toggle('scrolled', sy > 10);
     if (heroSlides.length && heroEl && sy < heroEl.offsetHeight * 1.2) {
-      var offset = sy * 0.35;
+      var offset = sy * 0.18;
       for (var i = 0; i < heroSlides.length; i++) {
         heroSlides[i].style.transform = 'translateY(' + offset + 'px)';
       }
