@@ -4,7 +4,7 @@
 {% block title %}Gallery – Southern Park Music School{% endblock %}
 
 {% block extra_head %}
-<meta name="description" content="Photos from recitals, studios, and student life at Southern Park Music School in Charlotte, NC." />
+<meta name="description" content="Photos and videos from recitals, studios, and student life at Southern Park Music School in Charlotte, NC." />
 <link rel="canonical" href="https://southernparkmusicschool.com/gallery/" />
 {% endblock %}
 
@@ -13,30 +13,66 @@
     <div class="max-w-7xl mx-auto px-6">
       <h1 class="font-bold text-stone-900 mb-2"
         style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.7rem,4vw,2.4rem)">Gallery</h1>
-      <p class="text-stone-500 max-w-xl text-sm leading-relaxed">Explore moments from lessons, recitals, and student
-        life at Southern Park.</p>
+      <p class="text-stone-500 max-w-xl text-sm leading-relaxed">Explore moments from lessons, recitals, and student life at Southern Park.</p>
     </div>
   </div>
 
   <main>
-    <div class="max-w-7xl mx-auto px-6 py-12">
-      {% if photos %}
-        <div class="gallery-grid">
-          {% for photo in photos %}
-          <div class="gallery-item">
-            <img src="{{ photo.image.url }}" alt="{{ photo.caption }}" loading="lazy" />
-            {% if photo.caption %}
-            <div class="gallery-caption">{{ photo.caption }}</div>
+
+    {# ── Videos Section ── #}
+    {% if videos %}
+    <section class="gallery-section bg-stone-50 border-b border-stone-200">
+      <div class="max-w-7xl mx-auto px-6 py-12">
+        <h2 class="gallery-section-heading">Videos</h2>
+        <div class="video-grid">
+          {% for video in videos %}
+          <div class="video-item">
+            <div class="video-embed-wrapper">
+              <iframe
+                src="{{ video.embed_url }}"
+                title="{{ video.title }}"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                loading="lazy"
+              ></iframe>
+            </div>
+            {% if video.title %}
+            <div class="video-meta">
+              <p class="video-title">{{ video.title }}</p>
+              {% if video.caption %}<p class="video-caption">{{ video.caption }}</p>{% endif %}
+            </div>
             {% endif %}
           </div>
           {% endfor %}
         </div>
-      {% else %}
-        <div class="text-center py-20 text-stone-500">
-          <p class="text-lg mb-2">No photos yet.</p>
-          <p class="text-sm">Check back soon!</p>
-        </div>
-      {% endif %}
-    </div>
+      </div>
+    </section>
+    {% endif %}
+
+    {# ── Photos Section ── #}
+    <section class="gallery-section {% if videos %}bg-white{% else %}bg-stone-50{% endif %}">
+      <div class="max-w-7xl mx-auto px-6 py-12">
+        {% if videos %}<h2 class="gallery-section-heading">Photos</h2>{% endif %}
+        {% if photos %}
+          <div class="gallery-grid">
+            {% for photo in photos %}
+            <div class="gallery-item">
+              <img src="{{ photo.image.url }}" alt="{{ photo.caption }}" loading="lazy" />
+              {% if photo.caption %}
+              <div class="gallery-caption">{{ photo.caption }}</div>
+              {% endif %}
+            </div>
+            {% endfor %}
+          </div>
+        {% else %}
+          <div class="text-center py-20 text-stone-500">
+            <p class="text-lg mb-2">No photos yet.</p>
+            <p class="text-sm">Check back soon!</p>
+          </div>
+        {% endif %}
+      </div>
+    </section>
+
   </main>
 {% endblock %}

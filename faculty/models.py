@@ -1,12 +1,32 @@
 from django.db import models
 
+INSTRUMENT_CHOICES = [
+    ("piano",               "Piano"),
+    ("piano voice",         "Piano & Voice"),
+    ("violin viola",        "Violin & Viola"),
+    ("violin",              "Violin"),
+    ("viola",               "Viola"),
+    ("cello",               "Cello"),
+    ("flute",               "Flute"),
+    ("oboe flute",          "Oboe & Flute"),
+    ("oboe",                "Oboe"),
+    ("saxophone clarinet",  "Saxophone & Clarinet"),
+    ("saxophone",           "Saxophone"),
+    ("clarinet",            "Clarinet"),
+    ("voice",               "Voice"),
+    ("guitar",              "Guitar"),
+    ("drums",               "Drums / Percussion"),
+    ("administrator",       "Staff / Administrator"),
+]
+
 
 class FacultyMember(models.Model):
     name = models.CharField(max_length=120)
     title = models.CharField(max_length=120)
     instrument_tag = models.CharField(
         max_length=60,
-        help_text="Space-separated tags for search filtering, e.g. 'piano voice'",
+        choices=INSTRUMENT_CHOICES,
+        help_text="Primary instrument category for grouping and search filtering.",
     )
     photo = models.ImageField(upload_to="faculty/", blank=True, null=True)
     bio = models.TextField(blank=True)

@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from .models import GalleryPhoto
+from .models import GalleryPhoto, GalleryVideo
 
 
 def gallery_view(request):
     photos = GalleryPhoto.objects.filter(is_active=True)
-    return render(request, "gallery/gallery.html", {"photos": photos})
+    videos = GalleryVideo.objects.filter(is_active=True)
+    return render(request, "gallery/gallery.html", {"photos": photos, "videos": videos})
