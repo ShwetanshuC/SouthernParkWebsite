@@ -3,12 +3,19 @@ from __future__ import annotations
 import os
 from pathlib import Path
 
+import dj_database_url
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "dev-secret-key-change-me")
 DEBUG = os.environ.get("DJANGO_DEBUG", "1") not in {"0", "false", "False"}
 ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = [f"https://{h}" for h in os.environ.get("ALLOWED_HOSTS", "").split(",") if h]
+
+_csrf_origins = [f"https://{h}" for h in os.environ.get("ALLOWED_HOSTS", "").split(",") if h]
+_railway_domain = os.environ.get("RAILWAY_PUBLIC_DOMAIN", "")
+if _railway_domain:
+    _csrf_origins.append(f"https://{_railway_domain}")
+CSRF_TRUSTED_ORIGINS = _csrf_origins
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -57,12 +64,16 @@ TEMPLATES = [
 WSGI_APPLICATION = "southernpark.wsgi.application"
 ASGI_APPLICATION = "southernpark.asgi.application"
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+_db_url = os.environ.get("DATABASE_URL")
+if _db_url:
+    DATABASES = {"default": dj_database_url.parse(_db_url, conn_max_age=600)}
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
     }
-}
 
 AUTH_PASSWORD_VALIDATORS: list[dict[str, str]] = []
 
