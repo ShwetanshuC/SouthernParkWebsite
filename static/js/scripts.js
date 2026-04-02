@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var searchInput = document.getElementById('faculty-search');
   if (searchInput) {
     // Map cards and set aria-controls
-    var allCards = Array.prototype.slice.call(document.querySelectorAll('.instrument-section .flip-card'));
+    var allCards = Array.prototype.slice.call(document.querySelectorAll('.faculty-section .flip-card'));
     allCards.forEach(function (card) {
       var grid = card.closest ? card.closest('.faculty-grid') : null;
       if (grid) {
@@ -276,6 +276,11 @@ document.addEventListener('DOMContentLoaded', function () {
       var term = (searchInput.value || '').trim();
       allCards.forEach(function (card) {
         card.style.display = cardMatches(card, term) ? '' : 'none';
+      });
+      // Hide section headings when all cards in that section are hidden
+      document.querySelectorAll('.faculty-section').forEach(function (section) {
+        var visible = section.querySelectorAll('.flip-card:not([style*="display: none"]):not([style*="display:none"])');
+        section.style.display = visible.length ? '' : 'none';
       });
     }
 

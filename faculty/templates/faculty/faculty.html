@@ -32,9 +32,11 @@
         </div>
       </section>
 
-      <section class="py-10">
+      {% for label, members in faculty_groups %}
+      <section class="faculty-section py-8" data-section="{{ label }}">
+        <h2 class="faculty-section-heading">{{ label }}</h2>
         <div class="faculty-grid">
-          {% for member in faculty_members %}
+          {% for member in members %}
           <div class="flip-card" onclick="toggleFlip(this)" role="button" tabindex="0" aria-expanded="false"
             data-tags="{{ member.instrument_tag }}">
             <div class="flip-card-inner">
@@ -56,11 +58,12 @@
               </div>
             </div>
           </div>
-          {% empty %}
-          <p class="text-stone-500 col-span-full text-center py-10">No faculty listed yet.</p>
           {% endfor %}
         </div>
       </section>
+      {% empty %}
+      <p class="text-stone-500 text-center py-10">No faculty listed yet.</p>
+      {% endfor %}
 
     </div>
   </main>

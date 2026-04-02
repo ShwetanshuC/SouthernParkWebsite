@@ -422,6 +422,20 @@ header { position: relative; display: block; line-height: 0; font-size: 0; }
 }
 
 /* ===== Faculty Page ===== */
+.faculty-section { border-top: 1px solid #e7e5e4; padding-top: 2rem; }
+.faculty-section:first-of-type { border-top: none; }
+
+.faculty-section-heading {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  font-weight: 700;
+  text-align: center;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  color: #1c1917;
+  margin-bottom: 1.5rem;
+}
+
 .faculty-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
