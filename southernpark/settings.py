@@ -11,10 +11,11 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "dev-secret-key-change-me")
 DEBUG = os.environ.get("DJANGO_DEBUG", "1") not in {"0", "false", "False"}
 ALLOWED_HOSTS = ["*"]
 
-_csrf_origins = [f"https://{h}" for h in os.environ.get("ALLOWED_HOSTS", "").split(",") if h]
-_railway_domain = os.environ.get("RAILWAY_PUBLIC_DOMAIN", "")
-if _railway_domain:
-    _csrf_origins.append(f"https://{_railway_domain}")
+_csrf_origins = [u for u in os.environ.get("CSRF_TRUSTED_ORIGINS", "").split(",") if u]
+if not _csrf_origins:
+    _railway_domain = os.environ.get("RAILWAY_PUBLIC_DOMAIN", "")
+    if _railway_domain:
+        _csrf_origins = [f"https://{_railway_domain}"]
 CSRF_TRUSTED_ORIGINS = _csrf_origins
 
 INSTALLED_APPS = [
