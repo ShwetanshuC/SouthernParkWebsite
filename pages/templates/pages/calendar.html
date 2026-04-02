@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Calendar – Southern Park Music School{% endblock %}
+
+{% block extra_head %}
+<meta name="description" content="View upcoming events, recitals, and school dates at Southern Park Music School." />
+{% endblock %}
+
+{% block content %}
+  <div class="bg-stone-100 border-b border-stone-200 py-10">
+    <div class="max-w-7xl mx-auto px-6">
+      <h1 class="font-bold text-stone-900 mb-2"
+        style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.7rem,4vw,2.4rem)">School Calendar</h1>
+      <p class="text-stone-500 max-w-xl text-sm leading-relaxed">Upcoming events, recitals, and important school dates.</p>
+    </div>
+  </div>
+
+  <main>
+    <div class="max-w-5xl mx-auto px-6 py-12">
+      {% if site_settings.calendar_embed_url %}
+        <div class="rounded-xl overflow-hidden shadow-md border border-stone-200">
+          <iframe src="{{ site_settings.calendar_embed_url }}"
+            style="border:0" width="100%" height="700" frameborder="0" scrolling="no"
+            title="Southern Park Music School Calendar"></iframe>
+        </div>
+      {% else %}
+        <div class="text-center py-20 text-stone-500">
+          <p class="text-lg mb-2">Calendar coming soon.</p>
+          <p class="text-sm">Please contact us for event information.</p>
+        </div>
+      {% endif %}
+    </div>
+  </main>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Policies – Southern Park Music School{% endblock %}
+
+{% block extra_head %}
+<meta name="description" content="Tuition, attendance, and studio policies for Southern Park Music School in Charlotte, NC." />
+<link rel="canonical" href="https://southernparkmusicschool.com/policies/" />
+{% endblock %}
+
+{% block content %}
+  <div class="bg-stone-100 border-b border-stone-200 py-10">
+    <div class="max-w-7xl mx-auto px-6">
+      <h1 class="font-bold text-stone-900 mb-2"
+        style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.7rem,4vw,2.4rem)">School Policies</h1>
+      <p class="text-stone-500 max-w-xl text-sm leading-relaxed">Everything you need to know about tuition, scheduling,
+        and performance expectations at Southern Park Music School.</p>
+    </div>
+  </div>
+
+  <main>
+    <div class="max-w-4xl mx-auto px-6 py-12">
+      <h2 class="font-bold text-stone-900 text-center mb-1"
+        style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.6rem,3vw,2.2rem)">Policies &amp; Tuition</h2>
+      <div class="w-12 h-0.5 bg-orange-600 mx-auto mb-8"></div>
+      <div class="policy-card">
+        {% for section in sections %}
+          <h3>{{ section.title }}</h3>
+          {{ section.body|safe }}
+        {% empty %}
+          <p class="text-stone-500">Policy information coming soon.</p>
+        {% endfor %}
+      </div>
+    </div>
+  </main>
+{% endblock %}

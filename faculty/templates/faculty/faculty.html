@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Faculty – Southern Park Music School{% endblock %}
+
+{% block extra_head %}
+<meta name="description" content="Meet the experienced music faculty at Southern Park Music School in Charlotte, NC." />
+<link rel="canonical" href="https://southernparkmusicschool.com/faculty/" />
+{% endblock %}
+
+{% block content %}
+  <div class="bg-stone-100 border-b border-stone-200 py-10">
+    <div class="max-w-7xl mx-auto px-6">
+      <h1 class="font-bold text-stone-900 mb-2"
+        style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.7rem,4vw,2.4rem)">Meet Our Faculty</h1>
+      <p class="text-stone-500 max-w-xl text-sm leading-relaxed">Private lessons for all ages and levels in piano,
+        strings, woodwinds, and voice. Study classical, jazz, or contemporary styles with our experienced faculty.</p>
+    </div>
+  </div>
+
+  <main>
+    <div class="max-w-7xl mx-auto px-6">
+
+      <!-- Search Toolbar -->
+      <section class="py-4 sticky top-16 z-40 bg-stone-50 border-b border-stone-200" aria-label="Faculty search">
+        <div class="flex justify-end">
+          <div class="search-box">
+            <label for="faculty-search" class="visually-hidden">Search faculty</label>
+            <input id="faculty-search" type="search" placeholder="Search by name or instrument"
+              aria-label="Search faculty" />
+          </div>
+        </div>
+      </section>
+
+      <section class="py-10">
+        <div class="faculty-grid">
+          {% for member in faculty_members %}
+          <div class="flip-card" onclick="toggleFlip(this)" role="button" tabindex="0" aria-expanded="false"
+            data-tags="{{ member.instrument_tag }}">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                {% if member.photo %}
+                  <img src="{{ member.photo.url }}" alt="{{ member.name }}" />
+                {% else %}
+                  <img src="{% static 'images/piano.png' %}" alt="{{ member.name }}" />
+                {% endif %}
+                <div class="p-3">
+                  <h5>{{ member.name }}</h5>
+                  <p>{{ member.title }}</p>
+                </div>
+              </div>
+              <div class="flip-card-back">
+                <h5>{{ member.name }}</h5>
+                <p>{{ member.bio }}</p>
+                <a href="mailto:{{ site_settings.email }}?subject=Lesson%20Inquiry" class="btn">Request Lesson</a>
+              </div>
+            </div>
+          </div>
+          {% empty %}
+          <p class="text-stone-500 col-span-full text-center py-10">No faculty listed yet.</p>
+          {% endfor %}
+        </div>
+      </section>
+
+    </div>
+  </main>
+{% endblock %}

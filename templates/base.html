@@ -1,0 +1,144 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}Southern Park Music School{% endblock %}</title>
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" type="image/png" href="{% static 'images/logo.png' %}" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['Poppins', 'ui-sans-serif', 'sans-serif'],
+          },
+          colors: {
+            spms: { accent: '#C2410C', 'accent-h': '#9A3412' }
+          }
+        }
+      }
+    }
+  </script>
+  {% block extra_head %}{% endblock %}
+</head>
+<body class="bg-stone-50">
+
+  {% if site_settings.alert_enabled %}
+  <div id="alertBanner" class="bg-red-600 text-white text-center text-sm font-medium py-2 px-10 relative">
+    {{ site_settings.alert_message }}
+    <button id="dismissBanner"
+      class="absolute right-3 top-1/2 -translate-y-1/2 w-7 h-7 inline-flex items-center justify-center rounded-full hover:bg-white/20 transition-colors"
+      aria-label="Dismiss warning">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+        class="w-4 h-4">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M18 6 6 18M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+  {% endif %}
+
+  <!-- Navbar -->
+  <nav class="sticky top-0 z-50 bg-stone-800 border-b border-stone-700" style="position:sticky">
+    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between py-3">
+      <div class="flex flex-col">
+        <div class="flex items-center gap-2.5">
+          <img src="{% static 'images/SPMS_542_icon.gif' %}" alt="SPMS logo" class="h-8 w-auto flex-shrink-0" />
+          <a href="{% url 'home' %}" class="font-bold text-lg text-white tracking-tight leading-none"
+            style="font-family:'Playfair Display',Georgia,serif;text-decoration:none">Southern Park Music School</a>
+        </div>
+        <div class="hidden md:flex items-center gap-2 text-xs text-stone-400 mt-1 pl-10">
+          <a href="tel:{{ site_settings.phone_tel }}" class="hover:text-white transition-colors"
+            style="text-decoration:none">{{ site_settings.phone_display }}</a>
+          <span class="text-stone-600">•</span>
+          <a href="mailto:{{ site_settings.email }}" class="hover:text-white transition-colors"
+            style="text-decoration:none">{{ site_settings.email }}</a>
+        </div>
+      </div>
+      <button class="navbar-toggler lg:hidden" type="button" aria-controls="mainNav" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="hamburger" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+      <div class="navbar-collapse hidden lg:flex items-center gap-0.5" id="mainNav">
+        <ul class="flex items-center gap-0.5 list-none m-0 p-0">
+          <li><a href="{% url 'faculty' %}"
+              class="{% if request.resolver_match.url_name == 'faculty' %}active-link text-white font-semibold{% else %}text-stone-300 hover:text-white font-medium{% endif %} text-sm nav-link-ul px-3 py-2 rounded-md hover:bg-white/8 transition-colors"
+              style="text-decoration:none">Faculty</a></li>
+          <li><a href="{% url 'calendar' %}"
+              class="{% if request.resolver_match.url_name == 'calendar' %}active-link text-white font-semibold{% else %}text-stone-300 hover:text-white font-medium{% endif %} text-sm nav-link-ul px-3 py-2 rounded-md hover:bg-white/8 transition-colors"
+              style="text-decoration:none">Calendar</a></li>
+          <li><a href="{% url 'policies' %}"
+              class="{% if request.resolver_match.url_name == 'policies' %}active-link text-white font-semibold{% else %}text-stone-300 hover:text-white font-medium{% endif %} text-sm nav-link-ul px-3 py-2 rounded-md hover:bg-white/8 transition-colors"
+              style="text-decoration:none">Policies</a></li>
+          <li><a href="{% url 'gallery' %}"
+              class="{% if request.resolver_match.url_name == 'gallery' %}active-link text-white font-semibold{% else %}text-stone-300 hover:text-white font-medium{% endif %} text-sm nav-link-ul px-3 py-2 rounded-md hover:bg-white/8 transition-colors"
+              style="text-decoration:none">Gallery</a></li>
+          <li class="ml-3">
+            <a href="mailto:{{ site_settings.email }}?subject=Book%20a%20Trial%20Lesson"
+              class="btn-trial inline-flex items-center justify-center bg-orange-600 hover:bg-orange-500 text-white text-sm font-semibold rounded-full transition-all hover:shadow-lg hover:shadow-orange-600/30 hover:-translate-y-px whitespace-nowrap"
+              style="text-decoration:none;padding:0.6rem 1.25rem;line-height:1">Book a Trial Lesson</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  {% block content %}{% endblock %}
+
+  <!-- Footer -->
+  <footer class="bg-stone-900 text-stone-400 pt-12 pb-6">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+        <div>
+          <h3 class="font-bold text-white text-lg mb-2" style="font-family:'Playfair Display',Georgia,serif">Southern
+            Park Music School</h3>
+          <p class="text-sm leading-relaxed">Inspiring musicians in Charlotte, NC since 1964. Private lessons for all
+            ages and abilities.</p>
+        </div>
+        <div>
+          <h4 class="text-xs font-semibold uppercase tracking-widest text-stone-500 mb-3">Navigation</h4>
+          <ul class="space-y-2 text-sm list-none p-0 m-0">
+            <li><a href="{% url 'home' %}" class="hover:text-white transition-colors" style="text-decoration:none">Home</a></li>
+            <li><a href="{% url 'faculty' %}" class="hover:text-white transition-colors" style="text-decoration:none">Faculty</a></li>
+            <li><a href="{% url 'calendar' %}" class="hover:text-white transition-colors" style="text-decoration:none">Calendar</a></li>
+            <li><a href="{% url 'policies' %}" class="hover:text-white transition-colors" style="text-decoration:none">Policies</a></li>
+            <li><a href="{% url 'gallery' %}" class="hover:text-white transition-colors" style="text-decoration:none">Gallery</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-xs font-semibold uppercase tracking-widest text-stone-500 mb-3">Contact</h4>
+          <ul class="space-y-2 text-sm list-none p-0 m-0">
+            <li><a href="tel:{{ site_settings.phone_tel }}" class="hover:text-white transition-colors"
+                style="text-decoration:none">{{ site_settings.phone_display }}</a></li>
+            <li><a href="mailto:{{ site_settings.email }}" class="hover:text-white transition-colors"
+                style="text-decoration:none">{{ site_settings.email }}</a></li>
+            <li class="text-stone-500">{{ site_settings.address|linebreaksbr }}</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-xs font-semibold uppercase tracking-widest text-stone-500 mb-3">Hours</h4>
+          <ul class="space-y-1.5 text-sm list-none p-0 m-0">
+            <li class="flex justify-between gap-4"><span>Mon–Fri</span><span class="text-stone-300">{{ site_settings.hours_weekday }}</span></li>
+            <li class="flex justify-between gap-4"><span>Saturday</span><span class="text-stone-300">{{ site_settings.hours_saturday }}</span></li>
+            <li class="flex justify-between gap-4"><span>Sunday</span><span class="text-stone-300">Closed</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-stone-800 pt-5 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-stone-600">
+        <span>&copy; 2026 Southern Park Music School. All rights reserved.</span>
+        <span>4805 Park Rd STE 230, Charlotte, NC 28209</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="{% static 'bootstrap/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'js/scripts.js' %}"></script>
+  {% block extra_scripts %}{% endblock %}
+</body>
+</html>

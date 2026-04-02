@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Page Not Found – Southern Park Music School{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto px-6 py-24 text-center">
+  <h1 class="font-bold text-stone-900 mb-4" style="font-family:'Playfair Display',Georgia,serif;font-size:clamp(2rem,6vw,4rem)">404</h1>
+  <p class="text-stone-500 text-lg mb-8">Sorry, the page you're looking for doesn't exist.</p>
+  <a href="{% url 'home' %}" class="inline-flex items-center justify-center leading-none bg-orange-600 hover:bg-orange-500 text-white font-semibold px-7 py-3 rounded-full transition-all" style="text-decoration:none">Go Home</a>
+</div>
+{% endblock %}
