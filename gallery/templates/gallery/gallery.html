@@ -29,10 +29,11 @@
           <div class="video-item">
             <div class="video-embed-wrapper">
               <iframe
-                src="{{ video.embed_url }}"
+                src="{{ video.embed_src }}"
                 title="{{ video.title }}"
                 frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
                 allowfullscreen
                 loading="lazy"
               ></iframe>
