@@ -272,6 +272,24 @@ HERO_SLIDES = [
     ("gallery2.jpg", "Student recital", 30),
 ]
 
+CALENDAR_EMBED_URL = (
+    "https://calendar.google.com/calendar/embed"
+    "?src=c_45cc094f4ecc9abdcf76aeec72e0ec7827f2afec4cdfbaee569121134630aa76"
+    "%40group.calendar.google.com&ctz=America%2FNew_York"
+)
+
+
+def _sync_image(instance, field_name, src_path, filename):
+    """Re-save a file field from src_path if the file is missing on disk."""
+    field = getattr(instance, field_name)
+    if field and field.storage.exists(field.name):
+        return False  # already on disk
+    if not src_path.exists():
+        return False
+    with open(src_path, "rb") as f:
+        field.save(filename, File(f), save=True)
+    return True
+
 
 class Command(BaseCommand):
     help = "Seed initial data for Southern Park Music School"
@@ -279,12 +297,14 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         images_dir = settings.BASE_DIR / "static" / "images"
 
-        # SiteSettings
-        if not SiteSettings.objects.exists():
-            SiteSettings.objects.create()
+        # SiteSettings — create if missing, always ensure calendar URL is set
+        site, created = SiteSettings.objects.get_or_create(pk=1)
+        if created:
             self.stdout.write(self.style.SUCCESS("Created SiteSettings"))
-        else:
-            self.stdout.write("SiteSettings already exists, skipping.")
+        if not site.calendar_embed_url:
+            site.calendar_embed_url = CALENDAR_EMBED_URL
+            site.save(update_fields=["calendar_embed_url"])
+            self.stdout.write(self.style.SUCCESS("Set calendar embed URL"))
 
         # HeroSlides
         if not HeroSlide.objects.exists():
@@ -297,7 +317,12 @@ class Command(BaseCommand):
                 slide.save()
             self.stdout.write(self.style.SUCCESS(f"Created {len(HERO_SLIDES)} hero slides"))
         else:
-            self.stdout.write("HeroSlides already exist, skipping.")
+            synced = sum(
+                1 for s in HeroSlide.objects.filter(image__isnull=False)
+                if s.image and _sync_image(s, "image", images_dir / s.image.name.split("/")[-1], s.image.name.split("/")[-1])
+            )
+            if synced:
+                self.stdout.write(self.style.SUCCESS(f"Re-synced {synced} hero slide images"))
 
         # Faculty
         if not FacultyMember.objects.exists():
@@ -314,15 +339,30 @@ class Command(BaseCommand):
                 member.save()
             self.stdout.write(self.style.SUCCESS(f"Created {len(FACULTY_DATA)} faculty members"))
         else:
-            self.stdout.write("Faculty already exists, skipping.")
+            # Re-sync any photos missing from disk (e.g. after volume remount)
+            name_to_file = {d["name"]: d["photo"] for d in FACULTY_DATA}
+            synced = 0
+            for member in FacultyMember.objects.all():
+                photo_filename = name_to_file.get(member.name)
+                if photo_filename:
+                    src = images_dir / photo_filename
+                    if member.photo:
+                        if _sync_image(member, "photo", src, photo_filename):
+                            synced += 1
+                    elif src.exists():
+                        with open(src, "rb") as f:
+                            member.photo.save(photo_filename, File(f), save=True)
+                        synced += 1
+            if synced:
+                self.stdout.write(self.style.SUCCESS(f"Re-synced {synced} faculty photos"))
+            else:
+                self.stdout.write("Faculty photos up to date.")
 
         # PolicySections
         if not PolicySection.objects.exists():
             for data in POLICY_DATA:
                 PolicySection.objects.create(**data)
             self.stdout.write(self.style.SUCCESS(f"Created {len(POLICY_DATA)} policy sections"))
-        else:
-            self.stdout.write("Policy sections already exist, skipping.")
 
         # Gallery
         if not GalleryPhoto.objects.exists():
@@ -339,6 +379,17 @@ class Command(BaseCommand):
                     self.stdout.write(f"  Skipping {filename} (not found)")
             self.stdout.write(self.style.SUCCESS(f"Created {created} gallery photos"))
         else:
-            self.stdout.write("Gallery photos already exist, skipping.")
+            # Re-sync missing gallery images
+            file_map = {fn: (fn, cap, ord_) for fn, cap, ord_ in GALLERY_PHOTOS}
+            synced = 0
+            for photo in GalleryPhoto.objects.all():
+                if photo.image:
+                    fname = photo.image.name.split("/")[-1]
+                    if _sync_image(photo, "image", images_dir / fname, fname):
+                        synced += 1
+            if synced:
+                self.stdout.write(self.style.SUCCESS(f"Re-synced {synced} gallery images"))
+            else:
+                self.stdout.write("Gallery images up to date.")
 
         self.stdout.write(self.style.SUCCESS("Seed complete!"))
