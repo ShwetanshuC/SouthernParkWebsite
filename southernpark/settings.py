@@ -16,6 +16,12 @@ if not _csrf_origins:
     _railway_domain = os.environ.get("RAILWAY_PUBLIC_DOMAIN", "")
     if _railway_domain:
         _csrf_origins = [f"https://{_railway_domain}"]
+    else:
+        _csrf_origins = [
+            "https://localhost",
+            "https://127.0.0.1",
+            "https://*.amazonlightsail.com",
+        ]
 CSRF_TRUSTED_ORIGINS = _csrf_origins
 
 INSTALLED_APPS = [
@@ -25,6 +31,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "storages",
     "sitecontent",
     "pages",
     "faculty",
@@ -65,9 +72,19 @@ TEMPLATES = [
 WSGI_APPLICATION = "southernpark.wsgi.application"
 ASGI_APPLICATION = "southernpark.asgi.application"
 
-_db_url = os.environ.get("DATABASE_URL")
-if _db_url:
-    DATABASES = {"default": dj_database_url.parse(_db_url, conn_max_age=600)}
+if os.environ.get("DB_NAME") and os.environ.get("DB_USER"):
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": os.environ.get("DB_NAME"),
+            "USER": os.environ.get("DB_USER"),
+            "PASSWORD": os.environ.get("DB_PASSWORD"),
+            "HOST": os.environ.get("DB_HOST", "localhost"),
+            "PORT": os.environ.get("DB_PORT", "5432"),
+        }
+    }
+elif os.environ.get("DATABASE_URL"):
+    DATABASES = {"default": dj_database_url.parse(os.environ.get("DATABASE_URL"), conn_max_age=600)}
 else:
     DATABASES = {
         "default": {
@@ -89,6 +106,16 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
+
+# S3 media storage (used in production when S3 credentials are set)
+_s3_bucket = os.environ.get("S3_AWS_STORAGE_BUCKET_NAME")
+if _s3_bucket:
+    DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+    AWS_ACCESS_KEY_ID = os.environ.get("S3_ACCESS_KEY")
+    AWS_SECRET_ACCESS_KEY = os.environ.get("S3_SECRET_KEY")
+    AWS_STORAGE_BUCKET_NAME = _s3_bucket
+    AWS_QUERYSTRING_AUTH = False
+    AWS_S3_FILE_OVERWRITE = False
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
